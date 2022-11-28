@@ -1,0 +1,61 @@
+.card-trip {
+  overflow: hidden;
+  background: $darker;
+  border-radius: 5px;
+  margin: 10px;
+  transition: all 0.5s;
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.5s;
+}
+
+.card-trip h2 {
+  font-family: $my2-font;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.card-trip p {
+  font-family: $my2-font;
+  font-size: 16px;
+  margin: 0;
+}
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.img-gray-scale {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+/* Disable grayscale on hover */
+.card-trip:hover .img-gray-scale {
+  -webkit-filter: grayscale(0);
+  filter: none;
+}
+
+/* Make cards bigger on hover */
+.card-trip:hover {
+  transform: scale(1.02);
+}
