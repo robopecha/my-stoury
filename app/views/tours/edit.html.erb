@@ -1,0 +1,10 @@
+<div class="container my-5 w-50 ">
+  <h3>Edit this tour</h3>
+  <%= simple_form_for @tour do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :privacy, as: :select, collection: [['public',true], ['private',false]] %>
+    <%= f.input :img_url %>
+    <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
+</div>
