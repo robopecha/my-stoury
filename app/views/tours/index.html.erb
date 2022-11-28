@@ -4,7 +4,7 @@
     <% @tours.each do |tour| %>
       <a href="../tours/<%= tour.id%>" class='properlink'>
         <div class="card-trip">
-          <img class="img-gray-scale" src=<%= tour.img_url ? tour.img_url : cl_image_path(tour.photo.key) %> />
+          <%# <img class="img-gray-scale" src=<%= tour.img_url ? tour.img_url : cl_image_path(tour.photo.key) %>
           <div class="card-trip-infos">
               <div>
                 <h2><%= tour.name %></h2>
