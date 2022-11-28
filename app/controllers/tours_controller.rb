@@ -1,5 +1,5 @@
 class ToursController < ApplicationController
-  before_action :set_tour, only: %i[show]
+  before_action :set_tour, only: %i[show edit update destroy]
 
   def index
     @tours = Tour.all
@@ -7,7 +7,6 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find(params[:id])
-    @site = site.new
   end
 
   def new
@@ -18,10 +17,25 @@ class ToursController < ApplicationController
     @tour = Tour.new(tour_params)
     @tour.user = current_user
     if @tour.save
-      redirect_to tour_path
+      redirect_to tour_path(@tour)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @tour = Tour.find(params[:id])
+  end
+
+  def update
+    @tour = Tour.find(params[:id])
+    @tour.update(tour_params)
+    redirect_to tour_path(@tour)
+  end
+
+  def destroy
+    @tour.destroy
+    redirect_to tours_path, status: :see_other
   end
 
   private
