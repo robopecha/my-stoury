@@ -1,10 +1,19 @@
 <h1>Site#show</h1>
 
 <%= @site.name %>
+<%= cl_image_tag @site.photo.key %>
+
 
 <% @site.notes.each do |note| %>
   <br>
-  <%= note.content %>
+  <%= note.rich_content %>
+  <%# <%= raise if @site.notes.last == note %>
+  <% if note.photos.first %>
+    <% note.photos.each do |photo| %>
+      <%= photo.key %>
+      <%= cl_image_tag photo.key %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <%= render "notes/form" %>
