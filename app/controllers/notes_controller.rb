@@ -8,7 +8,7 @@ class NotesController < ApplicationController
     @note = Note.new(note_params)
     @note.site = Site.find(params[:site_id])
     if @note.save
-      redirect_to tour_path(@note.site.tour)
+      redirect_to site_path(@note.site)
     else
       render :new, status: unprocessable_entity
     end

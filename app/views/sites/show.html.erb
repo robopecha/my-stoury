@@ -2,4 +2,9 @@
 
 <%= @site.name %>
 
+<% @site.notes.each do |note| %>
+  <br>
+  <%= note.content %>
+<% end %>
+
 <%= render "notes/form" %>
