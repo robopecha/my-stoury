@@ -5,5 +5,7 @@ class Site < ApplicationRecord
   has_many :notes
   belongs_to :tour
 
+
   validates :name, :address, presence: true
+
 end

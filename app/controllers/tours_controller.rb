@@ -7,6 +7,7 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find(params[:id])
+    @site = Site.new
   end
 
   def new

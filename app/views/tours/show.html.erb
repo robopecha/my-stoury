@@ -4,3 +4,11 @@
 <h3><%= @tour.name %></h3>
 <p><%= @tour.description %></p>
 
+<ul>
+  <% @tour.sites.each do |site| %>
+  <li> <%= site.name %></li>
+  <% end %>
+</ul>
+
+<%= render "sites/form" %>
+
