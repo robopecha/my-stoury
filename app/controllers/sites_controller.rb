@@ -18,6 +18,7 @@ class SitesController < ApplicationController
 
   def show
     @site = Site.find(params[:id])
+    @note = Note.new
   end
 
   def new

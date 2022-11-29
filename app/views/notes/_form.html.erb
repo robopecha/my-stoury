@@ -1,0 +1,7 @@
+<div class="container my-5 w-50 ">
+  <h3>Add a new note</h3>
+  <%= simple_form_for [@site, @note] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
+</div>
