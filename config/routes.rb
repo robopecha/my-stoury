@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :tours do
-    resources :sites
+    resources :sites, only: %i[new create]
   end
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :sites
+  resources :sites, only: :show do
+    resources :notes, only: %i[new create]
+  end
+  
 end
