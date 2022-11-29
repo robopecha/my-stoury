@@ -17,6 +17,6 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:content)
+    params.require(:note).permit(:rich_content, photos: [])
   end
 end

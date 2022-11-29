@@ -7,7 +7,8 @@
       <%= f.input :address, input_html: { id: 'site_address'}, :as => :hidden %>
       <%= f.input :longitude, input_html: { id: 'site_longitude'}, :as => :hidden %>
       <%= f.input :latitude, input_html: { id: 'site_latitude'}, :as => :hidden %>
-      <%= f.input :img_url, :as => :hidden %>
+      <%= f.input :photo, as: :file %>
       <%= f.submit class: 'btn btn-flat' %>
     <% end %>
+
 </div>
