@@ -8,6 +8,16 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
     @site = Site.new
+    @sites = Site.where("tour_id = ?", @tour.id)
+    if @sites.size > 0
+      @markers = @sites.geocoded.map do |site|
+        {
+          lat: site.latitude,
+          lng: site.longitude,
+          info_window: render_to_string(partial: "sites/info_window", locals: {site: site})
+        }
+      end
+    end
   end
 
   def new
