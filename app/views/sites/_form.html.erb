@@ -1,13 +1,13 @@
 
-<div class="container my-3 w-25">
+<div class="site-form">
     <h3>Add a new site</h3>
     <div id="geocoder" class="geocoder mb-2"></div>
     <%= simple_form_for [@tour, @site], html: { class: "w-100"} do |f| %>
       <%= f.input :name, input_html: { id: 'site_name'} %>
-      <%= f.input :address, input_html: { id: 'site_address'} %>
-      <%= f.input :longitude, input_html: { id: 'site_longitude'} %>
-      <%= f.input :latitude, input_html: { id: 'site_latitude'} %>
-      <%= f.input :img_url %>
+      <%= f.input :address, input_html: { id: 'site_address'}, :as => :hidden %>
+      <%= f.input :longitude, input_html: { id: 'site_longitude'}, :as => :hidden %>
+      <%= f.input :latitude, input_html: { id: 'site_latitude'}, :as => :hidden %>
+      <%= f.input :img_url, :as => :hidden %>
       <%= f.submit class: 'btn btn-flat' %>
     <% end %>
 </div>
