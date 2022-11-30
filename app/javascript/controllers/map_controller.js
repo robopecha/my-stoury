@@ -16,8 +16,8 @@ export default class extends Controller {
     const map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/streets-v10",
-      center: [-74.5, 40],
-      zoom: 13,
+      center: [0, 0],
+      zoom: 0.4,
     });
 
     const geocoder = new MapboxGeocoder({
