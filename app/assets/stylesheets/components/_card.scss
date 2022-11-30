@@ -1,6 +1,6 @@
 .card-trip {
   overflow: hidden;
-  background: $darker;
+  background: $body-bg;
   border-radius: 5px;
   margin: 10px;
   transition: all 0.5s;
@@ -14,7 +14,7 @@
 }
 
 .card-trip h2 {
-  font-family: $my2-font;
+  font-family: $headers-font;
   font-size: 16px;
   text-transform: uppercase;
   padding-bottom: 5px;
@@ -23,7 +23,7 @@
 }
 
 .card-trip p {
-  font-family: $my2-font;
+  font-family: $body-font;
   font-size: 16px;
   margin: 0;
 }

@@ -7,6 +7,6 @@ class Site < ApplicationRecord
   belongs_to :tour
 
 
-  validates :name, :address, presence: true 
+  validates :name, :address, presence: true
 
 end

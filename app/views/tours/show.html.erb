@@ -1,4 +1,4 @@
-<div class="container-fluid tour-container">
+<div class="container-fluid tour-container" data-controller="map" data-map-markers-value="<%= @markers.to_json %>">
 
   <div class="tour-texts">
     <h3><%= @tour.name %></h3>
@@ -7,20 +7,23 @@
 
   <div class="add-container mx-2">
 
-      <div class="sites-container">
-        <% @tour.sites.each do |site| %>
-          <div class="site-card">
-          <h4><%= link_to site.name, site_path(site) %></h4>
-          <p><%= site.address %></p>
-          <%= link_to "Edit site", edit_site_path(site)%>
-          </div>
-        <% end %>
-      </div>
+      <% if @tour.sites.size > 0 %>
+        <div class="sites-container">
+          <% @tour.sites.each do |site| %>
+            <div class="site-card">
+            <h4><%= site.name %></h4>
+            <p><%= site.address %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
 
 
 
-      <div data-controller="map" data-map-markers-value="<%= @markers.to_json %>"></div>
-      <div id="map" style="width: 100%; height: 800px;" ></div>
+      <div id="map" class="tour-map"></div>
+
+      <%# <div ></div> %>
+
 
       <%= render "sites/form" %>
 
