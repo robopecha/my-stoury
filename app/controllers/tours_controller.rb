@@ -2,7 +2,11 @@ class ToursController < ApplicationController
   before_action :set_tour, only: %i[show edit update destroy]
 
   def index
-    @tours = Tour.all
+    if params[:query].present?
+      @tours = Tour.where(name: params[:query])
+    else
+      @tours = Tour.all
+    end
   end
 
   def show
