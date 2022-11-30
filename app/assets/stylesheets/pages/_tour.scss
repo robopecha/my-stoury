@@ -16,6 +16,12 @@
   width: 20%;
   height: 700px;
   overflow-y: scroll;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+
+.sites-container::-webkit-scrollbar {
+  width: 0 !important;
 }
 
 .tour-map {
