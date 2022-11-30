@@ -35,10 +35,23 @@ class SitesController < ApplicationController
     end
   end
 
+  def edit
+    @site = Site.find(params[:id])
+  end
+
+  def update
+    @site = Site.find(params[:id])
+    if @site.update(site_params)
+      redirect_to site_path(@site)
+    else
+      render :edit, status: unprocessable_entity
+    end
+  end
+
   private
 
   def site_params
-    params.require(:site).permit(:name, :photo) #:address, :longitude, :latitude
+    params.require(:site).permit(:name, :address, :longitude, :latitude, :photo)
   end
 
 end

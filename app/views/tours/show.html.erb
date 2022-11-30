@@ -10,8 +10,9 @@
       <div class="sites-container">
         <% @tour.sites.each do |site| %>
           <div class="site-card">
-          <h4><%= site.name %></h4>
+          <h4><%= link_to site.name, site_path(site) %></h4>
           <p><%= site.address %></p>
+          <%= link_to "Edit site", edit_site_path(site)%>
           </div>
         <% end %>
       </div>
@@ -29,4 +30,3 @@
 
 
 </div>
-
