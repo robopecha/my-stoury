@@ -1,6 +1,5 @@
 const path    = require("path")
 const webpack = require("webpack")
-require("richtext")
 
 module.exports = {
   mode: "production",
