@@ -7,6 +7,14 @@
 
   <div class="add-container mx-2">
 
+      <%= link_to "Add user", new_tour_tour_user_path(@tour) %>
+
+      <% @tour.users.each do |user| %>
+        <%= user.username %>
+        <%= link_to "Delete user", tour_user_path(@tour), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{user.username} from your #{@tour.name} tour?" }  %>
+      <% end %>
+
+
       <% if @tour.sites.size > 0 %>
         <div class="sites-container">
           <% @tour.sites.each do |site| %>
@@ -21,8 +29,6 @@
 
 
       <div id="map" class="tour-map"></div>
-
-      <%# <div ></div> %>
 
 
       <%= render "sites/form" %>
