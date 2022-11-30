@@ -27,10 +27,12 @@ class ToursController < ApplicationController
 
   def create
     @tour = Tour.new(tour_params)
-    @tour_user = TourUser.new
-    @tour_user.tour = @tour
-    @tour_user.user = current_user
+    @tour.user = current_user
     if @tour.save
+      @tour_user = TourUser.new
+      @tour_user.tour = @tour
+      @tour_user.user = current_user
+      @tour_user.save
       redirect_to tour_path(@tour)
     else
       render :new, status: :unprocessable_entity
