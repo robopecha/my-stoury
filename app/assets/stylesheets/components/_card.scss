@@ -1,6 +1,6 @@
 .card-trip {
   overflow: hidden;
-  background: $body-bg;
+  background: white;
   border-radius: 5px;
   margin: 10px;
   transition: all 0.5s;
@@ -14,7 +14,7 @@
 }
 
 .card-trip h2 {
-  font-family: $headers-font;
+  font-family: $body-font;
   font-size: 16px;
   text-transform: uppercase;
   padding-bottom: 5px;
@@ -43,19 +43,19 @@
   width: 40px;
 }
 
-.img-gray-scale {
-  filter: gray; /* IE6-9 */
-  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
-}
+// .img-gray-scale {
+//   filter: gray; /* IE6-9 */
+//   -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+//   filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+// }
 
-/* Disable grayscale on hover */
-.card-trip:hover .img-gray-scale {
-  -webkit-filter: grayscale(0);
-  filter: none;
-}
+// /* Disable grayscale on hover */
+// .card-trip:hover .img-gray-scale {
+//   -webkit-filter: grayscale(0);
+//   filter: none;
+// }
 
-/* Make cards bigger on hover */
-.card-trip:hover {
-  transform: scale(1.02);
-}
+// /* Make cards bigger on hover */
+// .card-trip:hover {
+//   transform: scale(1.02);
+// }

@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def dashboard
+    @tours = Tour.where(user_id: current_user)
+  end
 end

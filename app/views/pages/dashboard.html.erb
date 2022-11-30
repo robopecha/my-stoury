@@ -1,4 +1,4 @@
-<h3 class="mt-5">All tours</h3>
+<h3 class="mt-5">My tours</h3>
 
 <%# <a class="btn btn-ghost mt-2 mb-4" href="tour/new">Add a new tour</a> %>
 <%= link_to "Add a new tour", new_tour_path, class: "btn btn-ghost mt-2 mb-4" %>
@@ -16,7 +16,6 @@
           <div class="card-body">
             <%= link_to "Edit my tour", edit_tour_path(tour), class: "card-link properlink" %>
             <%= link_to "Delete this tour", tour_path(tour), class: "card-link properlink", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{tour.name} from your tours?"} %>
-
           </div>
         </div>
       </div>
