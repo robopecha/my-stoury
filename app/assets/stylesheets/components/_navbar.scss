@@ -1,6 +1,18 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #3e6754;
+  color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.05);
+}
+
+.navbar-lewagon * {
+  color: inherit;
+  transition: all 0.3s;
+}
+
+.navbar-lewagon .nav-link:hover {
+  color: inherit;
+  font-weight: 600;
 }
 
 .navbar-lewagon .navbar-collapse {
