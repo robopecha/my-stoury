@@ -1,19 +1,23 @@
-<h1>Site#show</h1>
+<div class="container">
+  <h1><%= @site.name %></h1>
 
-<%= @site.name %>
-<%= cl_image_tag @site.photo.key %>
+  <%= cl_image_tag @site.photo.key %>
 
 
-<% @site.notes.each do |note| %>
-  <br>
-  <%= note.rich_content %>
-  <%# <%= raise if @site.notes.last == note %>
-  <% if note.photos.first %>
-    <% note.photos.each do |photo| %>
-      <%= photo.key %>
-      <%= cl_image_tag photo.key %>
+  <% @site.notes.each do |note| %>
+    <br>
+    <%= note.rich_content %>
+    <%# <%= raise if @site.notes.last == note %>
+    <% if note.photos.first %>
+      <% note.photos.each do |photo| %>
+        <%= photo.key %>
+        <%= cl_image_tag photo.key %>
+      <% end %>
     <% end %>
+    <%= link_to "Edit note", edit_note_path(note) %>
   <% end %>
-<% end %>
 
-<%= render "notes/form" %>
+  <%= render "notes/form" %>
+
+  <%= link_to "Back to tour", tour_path(@site.tour) %>
+</div>

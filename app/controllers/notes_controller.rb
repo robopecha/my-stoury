@@ -14,6 +14,16 @@ class NotesController < ApplicationController
     end
   end
 
+  def edit
+    @note = Note.find(params[:id])
+  end
+
+  def update
+    @note = Note.find(params[:id])
+    @note.update(note_params)
+    redirect_to site_path(@note.site)
+  end
+
   private
 
   def note_params
