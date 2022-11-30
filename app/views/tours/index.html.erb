@@ -7,8 +7,10 @@
     <% @tours.each do |tour| %>
       <a href="../tours/<%= tour.id%>" class='properlink'>
         <div class="card-trip">
+        <% if tour.photo.key? %>
           <img class="img-gray-scale" src=<%=cl_image_path(tour.photo.key)%>>
           <%# <%= cl_image_tag tour.photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
           <div class="card-trip-infos">
             <div>
               <h2><%= tour.name %></h2>
