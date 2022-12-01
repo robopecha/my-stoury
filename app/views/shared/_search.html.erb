@@ -1,10 +1,10 @@
-<div class="form-box  mt-3">
+<div class="form-box mt-3">
   <%= form_with url: tours_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
       placeholder: "Find a Tour"
     %>
-    <%= submit_tag "Search", class: "search-button" %>
+    <%= submit_tag "Search", class: "search-button  text-white" %>
   <% end %>
 </div>

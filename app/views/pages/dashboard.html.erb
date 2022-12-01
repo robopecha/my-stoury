@@ -1,10 +1,11 @@
+<div class="container">
+
 
   <h3 class="mt-5">My tours</h3>
 
   <%# <a class="btn btn-ghost mt-2 mb-4" href="tour/new">Add a new tour</a> %>
-  <%= link_to new_tour_path do %>
-  <i class="fa-solid fa-plus" class="properlink"></i>
-  <% end %>
+  <%= link_to "Add a tour", new_tour_path, class: "btn btn-primary"  %>
+
 
   <div class="cards">
     <% @tours.each do |tour| %>
@@ -39,3 +40,6 @@
 
     <% end %>
   </div>
+
+
+</div>

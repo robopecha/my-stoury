@@ -5,7 +5,7 @@ class ToursController < ApplicationController
     if params[:query].present?
       @tours = Tour.where(name: params[:query])
     else
-      @tours = Tour.all
+      @tours = Tour.where(privacy: false)
     end
   end
 

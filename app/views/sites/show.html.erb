@@ -1,24 +1,38 @@
-<div class="container">
+<div class="container mt-5">
   <h1><%= @site.name %></h1>
+  <%= link_to "Back to tour", tour_path(@site.tour), class: "btn btn-success" %>
 
   <% if @site.photo.key %>
     <%= cl_image_tag @site.photo.key %>
   <% end %>
 
-  <% @site.notes.each do |note| %>
+  <div class="card-note-container">
+
+    <% @site.notes.each do |note| %>
     <br>
-    <%= note.rich_content %>
-    <%# <%= raise if @site.notes.last == note %>
-    <% if note.photos.first %>
-      <% note.photos.each do |photo| %>
-        <%= photo.key %>
-        <%= cl_image_tag photo.key %>
+      <div class="card-note">
+      <%= link_to edit_note_path(note) do %>
+        <i class="fa-solid fa-pen-to-square"></i>
       <% end %>
-    <% end %>
-    <%= link_to "Edit note", edit_note_path(note) %>
+      <%= note.rich_content %>
+      <%# <%= raise if @site.notes.last == note %>
+      <% if note.photos.first %>
+        <% note.photos.each do |photo| %>
+          <%= photo.key %>
+          <%= cl_image_tag photo.key %>
+        <% end %>
+      <% end %>
+
+      </div>
   <% end %>
+
+
+  </div>
+
+
+
 
   <%= render "notes/form" %>
 
-  <%= link_to "Back to tour", tour_path(@site.tour) %>
+
 </div>
