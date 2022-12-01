@@ -3,6 +3,7 @@ class TourUsersController < ApplicationController
   def new
     @tour_user = TourUser.new
     @tour = Tour.find(params[:tour_id])
+    @other_users = User.excluding(current_user, @tour.tour_users.map(&:user)) # @tour.tour_users.map { |tour_user| tour_user.user }
   end
 
   def create
