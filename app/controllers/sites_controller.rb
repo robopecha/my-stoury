@@ -48,6 +48,13 @@ class SitesController < ApplicationController
     end
   end
 
+  def destroy
+    @site = Site.find(params[:id])
+    @tour = @site.tour
+    @site.destroy
+    redirect_to tour_path(@tour)
+  end
+
   private
 
   def site_params

@@ -1,27 +1,38 @@
+<%= render '/shared/search'%>
+
 <h3 class="mt-5">All tours</h3>
 
 <%# <a class="btn btn-ghost mt-2 mb-4" href="tour/new">Add a new tour</a> %>
 <%= link_to "Add a new tour", new_tour_path, class: "btn btn-ghost mt-2 mb-4" %>
 
+  <div class="cards">
+    <% @tours.each do |tour| %>
 
-<div class="cards mt-10">
-  <% @tours.each do |tour| %>
-    <a href="../tours/<%= tour.id%>" class='properlink'>
-      <div class="card-trip">
-        <%= cl_image_tag tour.photo.key, height: 300, width: 400, crop: :fill, class:"img-gray-scale" %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= tour.name %></h2>
-            <p><%= tour.description %></p>
+        <div class="travel-card">
+          <div class="travel-card-header">
+          <% if tour.photo.key? %>
+            <%= cl_image_tag tour.photo.key %>
+          <% end %>
           </div>
-          <div class="card-body">
-            <%= link_to "Edit my tour", edit_tour_path(tour), class: "card-link properlink" %>
-            <%= link_to "Delete this tour", tour_path(tour), class: "card-link properlink", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{tour.name} from your tours?"} %>
 
-
+          <div class="travel-card-info">
+            <div class="travel-card-text">
+                <h3><%= tour.name %></h3>
+                <p><%= tour.description %></p>
+            </div>
+            <div class="travel-card-links">
+                  <%= link_to tour_path(tour), class: "card-tour-button" do %>
+                    <i class="fa-solid fa-eye"></i>
+                  <% end %>
+                <%= link_to edit_tour_path(tour), class: "card-tour-button" do %>
+                  <i class="fa-solid fa-pen"></i>
+                <% end %>
+                <%= link_to tour_path(tour), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{tour.name} from your tours?"}, class: "card-tour-button" do %>
+                  <i class="fa-sharp fa-solid fa-circle-xmark"></i>
+                <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    </a>
-  <% end %>
-</div>
+
+    <% end %>
+  </div>

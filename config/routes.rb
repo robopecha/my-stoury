@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   resources :tours, except: %i[new create] do
     resources :sites, only: %i[new create]
   end
-
-  resources :sites, only: %i[show edit update] do
+  # Defines the root path route ("/")
+  # root "articles#index"
+  resources :sites, only: %i[show edit update destroy] do
     resources :notes, only: %i[new create]
   end
 

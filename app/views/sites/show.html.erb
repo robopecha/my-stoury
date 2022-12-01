@@ -1,8 +1,9 @@
 <div class="container">
   <h1><%= @site.name %></h1>
 
-  <%= cl_image_tag @site.photo.key %>
-
+  <% if @site.photo.key %>
+    <%= cl_image_tag @site.photo.key %>
+  <% end %>
 
   <% @site.notes.each do |note| %>
     <br>

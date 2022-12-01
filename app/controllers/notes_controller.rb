@@ -2,6 +2,7 @@ class NotesController < ApplicationController
 
   def new
     @note = Note.new
+    @site = Site.find(params[:site_id])
   end
 
   def create
@@ -27,6 +28,6 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:rich_content, photos: [])
+    params.require(:note).permit(:rich_content, :site_id, photos: [])
   end
 end
