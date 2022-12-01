@@ -18,6 +18,11 @@ Rails.application.routes.draw do
   end
 
   resources :notes, only: %i[edit update]
+
   resources :tour_users, only: :destroy
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 
 end
