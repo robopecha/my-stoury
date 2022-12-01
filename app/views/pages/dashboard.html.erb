@@ -8,21 +8,24 @@
 
   <div class="cards">
     <% @tours.each do |tour| %>
-
         <div class="travel-card">
           <div class="travel-card-header">
-            <%= cl_image_tag tour.photo.key %>
+          <% if tour.photo.key? %>
+            <%= link_to tour_path(tour)do %>
+              <%= cl_image_tag tour.photo.key %>
+            <% end %>
+          <% end %>
           </div>
 
+        <%= link_to tour_path(tour)do %>
           <div class="travel-card-info">
             <div class="travel-card-text">
                 <h3><%= tour.name %></h3>
-                <p><%= tour.description %></p>
+                <% if tour.description %>
+                    <p><%= tour.description%></p>
+                <% end %>
             </div>
             <div class="travel-card-links">
-                  <%= link_to tour_path(tour), class: "card-tour-button" do %>
-                    <i class="fa-solid fa-eye"></i>
-                  <% end %>
                 <%= link_to edit_tour_path(tour), class: "card-tour-button" do %>
                   <i class="fa-solid fa-pen"></i>
                 <% end %>
@@ -32,6 +35,7 @@
             </div>
           </div>
         </div>
+      <% end %>
 
     <% end %>
   </div>

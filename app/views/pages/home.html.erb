@@ -1,11 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(assets/map.jpg);">
+<div class="banner" >
 
     <h1>My Stoury</h1>
 
 </div>
 
-<%= render '/shared/search'%>
+<div class="container">
+  <%= render '/shared/search'%>
 
-<%= link_to "Create a tour", new_tour_path %>
-<br>
-<%= link_to "See all tours", tours_path %>
+  <%= link_to "Create a tour", new_tour_path %>
+  <br>
+  <%= link_to "See all tours", tours_path %>
+</div>
