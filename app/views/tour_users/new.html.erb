@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container mt-5">
   <%= simple_form_for [@tour, @tour_user] do |f| %>
     <%= f.association :user, collection: @other_users, label_method: :username  %>
-    <%= f.submit "add user" %>
+    <%= f.submit "add user", class: "btn btn-primary" %>
   <% end %>
 </div>

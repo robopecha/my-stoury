@@ -1,13 +1,17 @@
 .button {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 16px 32px;
+  border-radius: 50px;
+  background: #ade8ca;
+  color: #250c09;
+  width: 160px;
+  text-align: center;
+  font-size: 16px;
+  transition: all 0.3s;
+}
 
-display: flex;
-flex-direction: row;
-align-items: flex-start;
-padding: 16px 32px;
-border-radius: 50px;
-background: #ADE8CA;
-color:#250C09;
-width: 160px;
-text-align: center;
-font-size: 16px;
+.button:hover {
+  transform: scale(1.05) translateY(-0.5rem);
 }

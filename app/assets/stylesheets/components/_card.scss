@@ -71,6 +71,20 @@
   }
 }
 
+.card-note {
+  background-color: white;
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.card-note-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 // .img-gray-scale {
 //   filter: gray; /* IE6-9 */
 //   -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */

@@ -1,9 +1,10 @@
-<%= render '/shared/search'%>
 
-<h3 class="mt-5">All tours</h3>
+<div class="container">
 
-<%# <a class="btn btn-ghost mt-2 mb-4" href="tour/new">Add a new tour</a> %>
-<%= link_to "Add a new tour", new_tour_path, class: "btn btn-ghost mt-2 mb-4" %>
+  <h3 class="mt-5">All tours</h3>
+  <%= render '/shared/search'%>
+  <%# <a class="btn btn-ghost mt-2 mb-4" href="tour/new">Add a new tour</a> %>
+  <%= link_to "Add a new tour", new_tour_path, class: "btn btn-primary mt-2 mb-4" %>
 
   <div class="cards">
     <% @tours.each do |tour| %>
@@ -36,3 +37,6 @@
 
     <% end %>
   </div>
+
+
+</div>
