@@ -13,6 +13,9 @@
             <div class="site-card">
             <h4><%= site.name %></h4>
             <p><%= site.address %></p>
+              <%= link_to site_path(site), class: "card-tour-button" do %>
+                <i class="fa-solid fa-eye"></i>
+              <% end %>
               <%= link_to new_site_note_path(site) do %>
                 <i class="fa-solid fa-plus" class="properlink"></i>
               <% end %>

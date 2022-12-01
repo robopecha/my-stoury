@@ -50,8 +50,9 @@ class SitesController < ApplicationController
 
   def destroy
     @site = Site.find(params[:id])
+    @tour = @site.tour
     @site.destroy
-    redirect_to tour_path(@site.tour)
+    redirect_to tour_path(@tour)
   end
 
   private
