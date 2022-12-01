@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @tours = Tour.where(user_id: current_user)
+    @tours = current_user.all_tours
   end
 end

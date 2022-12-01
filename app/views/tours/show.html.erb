@@ -29,17 +29,91 @@
 
               </div>
 
+
+  <div class="tour-texts">
+    <h3><%= @tour.name %></h3>
+    <p><%= @tour.description %></p>
+  </div>
+
+  <div class="add-container mx-2 chat-container">
+
+      <%= link_to "Add user", new_tour_tour_user_path(@tour) %>
+
+      <% @tour.users.each do |user| %>
+        <%= user.username %>
+        <%= link_to "Delete user", tour_user_path(@tour), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{user.username} from your #{@tour.name} tour?" }  %>
+      <% end %>
+
+
+      <% if @tour.sites.size > 0 %>
+        <div class="sites-container">
+          <% @tour.sites.each do |site| %>
+            <div class="site-card">
+            <h4><%= site.name %></h4>
+            <p><%= site.address %></p>
+              <%= link_to site_path(site), class: "card-tour-button" do %>
+                <i class="fa-solid fa-eye"></i>
+              <% end %>
+              <%= link_to new_site_note_path(site) do %>
+                <i class="fa-solid fa-plus" class="properlink"></i>
+              <% end %>
+            <%= link_to site_path(site), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{site.name} from your tours?"}, class: "card-tour-button" do %>
+                <i class="fa-sharp fa-solid fa-circle-xmark"></i>
+
             <% end %>
           </div>
         <% end %>
 
-        <div id="map" class="tour-map"></div>
+
+      <div id="map" class="tour-map"></div>
+
 
         <%# <div ></div> %>
 
-        <%= render "sites/form" %>
 
-    </div>
+      <%= render "sites/form" %>
+
+      <!-- Default dropup button -->
+
+      <div class="footer">
+        <div class="btn-group dropup ">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Chat
+          </button>
+          <ul class="dropdown-menu">
+            <!-- Dropdown menu links -->
+            <div class="chat-box">
+              <div class="container chatroom">
+
+                <div class="messages">
+                  <% @chatroom.messages.each do |message| %>
+                    <div id="message-<%= message.id %>">
+                      <small>
+                        <strong><%= message.user.username %></strong>
+                        <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+                      </small>
+                      <p><%= message.content %></p>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <div class="message-box">
+                <%= simple_form_for [@chatroom, @message],
+                  html: {class: "d-flex"} do |f|
+                %>
+                  <%= f.input :content,
+                    label: false,
+                    placeholder: "Message ##{@chatroom.name}",
+                    wrapper_html: {class: "flex-grow-1"}
+                  %>
+                  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+                <% end %>
+              </div>
+            </div>
+
+
+          </ul>
+        </div>
 
 
     <div>
@@ -50,6 +124,8 @@
       <% end %>
     </div>
 
+
   <%# </div> %>
 
+  </div>
 </div>

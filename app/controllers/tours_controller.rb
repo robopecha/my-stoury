@@ -14,6 +14,8 @@ class ToursController < ApplicationController
     @note = Note.new
     @site = Site.new
     @sites = Site.where("tour_id = ?", @tour.id)
+    @chatroom = @tour.chatroom
+    @message = Message.new
     if @sites.size > 0
       @markers = @sites.geocoded.map do |site|
         {
@@ -28,12 +30,20 @@ class ToursController < ApplicationController
 
   def new
     @tour = Tour.new
+    @chatroom = Chatroom.new
   end
 
   def create
     @tour = Tour.new(tour_params)
     @tour.user = current_user
+    @chatroom = Chatroom.new(name: @tour.name)
     if @tour.save
+      @chatroom.tour_id = @tour.id
+      @chatroom.save
+      # @tour_user = TourUser.new
+      # @tour_user.tour = @tour
+      # @tour_user.user = current_user
+      # @tour_user.save
       redirect_to tour_path(@tour)
     else
       render :new, status: :unprocessable_entity
