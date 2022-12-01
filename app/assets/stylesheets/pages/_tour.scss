@@ -13,11 +13,20 @@
   display: flex;
   flex-direction: column;
   padding-top: 2rem 0;
+  margin-right: 0.2rem;
   width: 20%;
   height: 700px;
   overflow-y: scroll;
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
+  transition: all 0.5s ease-out;
+}
+
+.sites-container.hide {
+  transition: all 0.5s ease-out;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
 }
 
 .sites-container::-webkit-scrollbar {
@@ -28,6 +37,8 @@
   width: 100%;
   height: 700px;
   overflow-y: scroll;
+  flex-grow: 1;
+  border-radius: 10px;
 }
 
 .tour-texts {
@@ -47,10 +58,51 @@
 }
 
 .site-card {
-  padding: 1rem 2rem;
-  width: 18rem;
+  padding: 1rem 1.5rem;
+  width: 100%;
   margin: 0.2rem 0;
   border-radius: 10px;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   background-color: white;
+}
+
+.site-card h4 {
+  cursor: pointer;
+}
+
+.site-card-info {
+  transition: all 0.5s ease-out;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.site-card:hover .site-card-info {
+  height: auto;
+  opacity: 1;
+}
+
+.site-card.highlight {
+  background-color: #ade792;
+}
+
+.info-btn {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.siteBtn {
+  position: absolute;
+  z-index: 2;
+  bottom: 10px;
+  left: 10px;
+  border: none;
+  background-color: #ade792;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.siteBtn.red {
+  background-color: #f7a4a4;
 }

@@ -38,6 +38,7 @@ export default class extends Controller {
 
     this.#addMarkersToMap(map);
     this.#fitMapToMarkers(map);
+    this.#openInfoWindow(map);
 
     // this.map.addControl(
     //   new MapboxGeocoder({
@@ -64,10 +65,54 @@ export default class extends Controller {
   #addMarkersToMap(map) {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window); // Add this
-      new mapboxgl.Marker()
+
+      const customMarker = document.createElement("div");
+      customMarker.className = "marker";
+      customMarker.style.backgroundImage = `url('https://cdn-icons-png.flaticon.com/512/169/169471.png')`;
+      customMarker.style.backgroundSize = "contain";
+      customMarker.style.width = "25px";
+      customMarker.style.height = "25px";
+
+      new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup) // Add this
         .addTo(map);
+
+      // newMarker.getElement().dataset.markerId = marker.id;
+      // // Put a microphone on the new marker listening for a mouseenter event
+      // newMarker
+      //   .getElement()
+      //   .addEventListener("mouseenter", (e) => this.#toggleCardHighlighting(e));
+      // // We put a microphone on listening for a mouseleave event
+      // newMarker
+      //   .getElement()
+      //   .addEventListener("mouseleave", (e) => this.#toggleCardHighlighting(e));
     });
+  }
+
+  #openInfoWindow(map) {
+    // Select all cards
+    console.log(map);
+    const cards = document.querySelectorAll(".site-card");
+    cards.forEach((card, index) => {
+      // Put a microphone on each card listening for a mouseenter event
+      card.addEventListener("mouseenter", () => {
+        // Here we trigger the display of the corresponding marker infoWindow with the "togglePopup" function provided by mapbox-gl
+        map._markers[index].togglePopup();
+      });
+      // We also put a microphone listening for a mouseleave event to close the modal when user doesn't hover the card anymore
+      card.addEventListener("mouseleave", () => {
+        map._markers[index].togglePopup();
+      });
+    });
+  }
+
+  #toggleCardHighlighting(event) {
+    // We select the card corresponding to the marker's id
+    const card = document.querySelector(
+      `[data-site-id="${event.currentTarget.dataset.markerId}"]`
+    );
+    // Then we toggle the class "highlight github" to the card
+    card.classList.toggle("highlight");
   }
 }

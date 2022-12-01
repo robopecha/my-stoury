@@ -21,7 +21,8 @@ class ToursController < ApplicationController
         {
           lat: site.latitude,
           lng: site.longitude,
-          info_window: render_to_string(partial: "sites/info_window", locals: {site: site})
+          info_window: render_to_string(partial: "sites/info_window", locals: {site: site}),
+          id: site.id
         }
       end
     end

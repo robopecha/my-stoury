@@ -1,17 +1,5 @@
 class SitesController < ApplicationController
 
-  # this route is for map testing
-   # def index
-     # @sites = Site.all
-     # @markers = @sites.geocoded.map do |site|
-       # {
-         # lat: site.latitude,
-         # lng: site.longitude,
-         # info_window: render_to_string(partial: "info_window", locals: {site: site})
-       # }
-     # end
-   # end
-
   def index
     @sites = Site.all
   end
@@ -31,7 +19,8 @@ class SitesController < ApplicationController
     if @site.save
       redirect_to tour_path(@site.tour)
     else
-      render :new, status: :unprocessable_entity
+      redirect_to tour_path(@site.tour), status: :unprocessable_entity
+      # render :new, status: :unprocessable_entity
     end
   end
 
