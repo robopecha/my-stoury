@@ -3,7 +3,7 @@ class ToursController < ApplicationController
 
   def index
     if params[:query].present?
-      @tours = Tour.where(name: params[:query])
+      @tours = Tour.search_by_name_and_description(params[:query])
     else
       @tours = Tour.where(privacy: false)
     end
