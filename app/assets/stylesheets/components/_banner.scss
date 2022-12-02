@@ -76,3 +76,19 @@
     background-image: url(assets/map.jpg);
   }
 }
+
+.banner-site {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+
+  h1 {
+    font-size: 5rem;
+    font-family: $dm-serif;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+}
