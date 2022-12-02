@@ -29,7 +29,8 @@ export default class extends Controller {
     geocoder.on("result", function (e) {
       let geoInput = document.querySelector(".mapboxgl-ctrl-geocoder--input");
       console.log(geoInput);
-      document.getElementById("site_name").value = e.result.place_name;
+      // document.getElementById("site_name").value =
+      //   e.result.place_name.split(" ")[0];
       document.getElementById("site_address").value = geoInput.value;
       document.getElementById("site_longitude").value = e.result.center[0];
       document.getElementById("site_latitude").value = e.result.center[1];
@@ -56,6 +57,7 @@ export default class extends Controller {
 
   #fitMapToMarkers(map) {
     const bounds = new mapboxgl.LngLatBounds();
+
     this.markersValue.forEach((marker) =>
       bounds.extend([marker.lng, marker.lat])
     );

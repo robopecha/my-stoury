@@ -1,6 +1,6 @@
 class Tour < ApplicationRecord
   has_many :sites, dependent: :destroy
-  has_many :tour_users
+  has_many :tour_users, dependent: :destroy
   has_many :users, through: :tour_users
   has_one :chatroom, dependent: :destroy
 
