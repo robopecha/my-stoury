@@ -1,6 +1,6 @@
 class Tour < ApplicationRecord
   has_many :sites, dependent: :destroy
-  has_many :tour_users
+  has_many :tour_users, dependent: :destroy
   has_many :users, through: :tour_users
   has_one :chatroom, dependent: :destroy
 
@@ -10,6 +10,7 @@ class Tour < ApplicationRecord
   validates :name, presence: true
 
   include PgSearch::Model
+
 pg_search_scope :search_by_name_and_description,
   against: [ :name, :description ],
   using: {

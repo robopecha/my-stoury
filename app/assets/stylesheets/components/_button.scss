@@ -6,12 +6,31 @@
   border-radius: 50px;
   background: #ade8ca;
   color: #250c09;
-  width: 160px;
+  // width: 160px;
   text-align: center;
   font-size: 16px;
   transition: all 0.3s;
+  border: none;
 }
 
 .button:hover {
-  transform: scale(1.05) translateY(-0.5rem);
+  transform: scale(1.02) translateY(-0.2rem);
+}
+
+.button.button-primary {
+  background: $color-primary;
+  color: white;
+  padding: 8px 16px;
+}
+
+.button.button-update {
+  background: $color-update;
+  color: white;
+  padding: 8px 16px;
+}
+
+.button.button-danger {
+  background: $color-danger;
+  color: white;
+  padding: 8px 16px;
 }

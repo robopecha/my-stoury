@@ -71,6 +71,12 @@
   }
 }
 
+.travel-card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .card-note {
   background-color: white;
   padding: 0.8rem 1.5rem;

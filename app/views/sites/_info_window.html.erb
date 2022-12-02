@@ -1,12 +1,17 @@
 <%# this partial is for map testing %>
+<%= link_to site_path(site) do %>
+<div class="infobox">
 <h2><%= site.name %></h2>
-<p><%= site.address %></p>
-<%= link_to site_path(site), class: "info-btn" do %>
-  <i class="fa-solid fa-eye"></i>
+<% if site.photo.key %>
+    <%= cl_image_tag site.photo.key %>
+ <% end %>
+<% if site.tour.user == current_user %>
+  <%= link_to new_site_note_path(site), class: "info-btn" do %>
+    <i class="fa-solid fa-plus" class="properlink"></i>
+  <% end %>
+  <%= link_to site_path(site), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{site.name} from your tours?"}, class: "info-btn" do %>
+    <i class="fa-sharp fa-solid fa-circle-xmark"></i>
+  <% end %>
 <% end %>
-<%= link_to new_site_note_path(site), class: "info-btn" do %>
-  <i class="fa-solid fa-plus" class="properlink"></i>
 <% end %>
-<%= link_to site_path(site), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{site.name} from your tours?"}, class: "info-btn" do %>
-  <i class="fa-sharp fa-solid fa-circle-xmark"></i>
-<% end %>
+</div>
