@@ -27,12 +27,10 @@
                 <% end %>
             </div>
             <div class="travel-card-links">
-                <%= link_to edit_tour_path(tour), class: "card-tour-button" do %>
-                  <i class="fa-solid fa-pen"></i>
-                <% end %>
-                <%= link_to tour_path(tour), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{tour.name} from your tours?"}, class: "card-tour-button" do %>
-                  <i class="fa-sharp fa-solid fa-circle-xmark"></i>
-                <% end %>
+                <%= link_to "Edit", edit_tour_path(tour), class: "button button-update" %>
+
+                <%= link_to "Delete", tour_path(tour), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{tour.name} from your tours?"}, class: "button button-danger" %>
+
                 <%if tour.privacy == false%>
                   <i class="fa-solid fa-lock-open"></i>
                 <% else %>
