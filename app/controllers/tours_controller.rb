@@ -16,6 +16,7 @@ class ToursController < ApplicationController
     @sites = Site.where("tour_id = ?", @tour.id)
     @chatroom = @tour.chatroom
     @message = Message.new
+
     if @sites.size > 0
       @markers = @sites.geocoded.map do |site|
         {
