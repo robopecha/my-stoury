@@ -82,3 +82,5 @@ end
 gem "geocoder"
 
 gem "cloudinary"
+
+gem "pg_search"
