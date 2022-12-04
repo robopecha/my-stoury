@@ -10,9 +10,27 @@
 
       <% if @tour.user == current_user %>
         <div class="tour-header-users">
-          <%= link_to new_tour_tour_user_path(@tour), class: "btn-new-user" do %>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn-new-user" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fa-solid fa-user-plus"></i>
-          <% end %>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Add a friend</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-add-user">
+                  <%= render "tour_users/form" %>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
           <% @tour.users.each do |user| %>
             <div class="user-tag">
@@ -54,7 +72,7 @@
                     <%= link_to new_site_note_path(site) do %>
                       <i class="fa-solid fa-plus" class="properlink"></i>
                     <% end %>
-                    <%= link_to site_path(site), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{site.name} from your tours?"}, class: "card-tour-button" do %>
+                    <%= link_to site_path(site), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{site.name} from your tour?"}, class: "card-tour-button" do %>
                       <i class="fa-sharp fa-solid fa-circle-xmark"></i>
                     <% end %>
                   <% end %>
@@ -69,26 +87,22 @@
         <div id="map" class="tour-map"></div>
 
 
-        <% if current_user == @tour.user || @tour.tour_users.include?(current_user) %>
+        <% if current_user == @tour.user || !User.excluding(@tour.tour_users.map(&:user)).include?(current_user) %>
 
-
-        <div class="footer">
-          <div class="btn-group dropup"
-            data-controller="chatroom-subscription"
-            data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
-          >
-
-              <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="footer">
+            <div class="btn-group dropup"
+              data-controller="chatroom-subscription"
+              data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+            >
+              <button type="button" class="btn-chat dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 Chat
               </button>
 
               <ul class="dropdown-menu">
                 <!-- Dropdown menu links -->
                 <div class="chat-box">
+                  <div class="container chatroom">
 
-                  <div class="container chatroom"
-
-                  >
                     <div class="messages"
                     data-chatroom-subscription-target="messages"
                     >
@@ -108,11 +122,13 @@
                           placeholder: "Message ##{@chatroom.name}",
                           wrapper_html: {class: "flex-grow-1"}
                         %>
-                        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+                        <%= f.submit "Send", class: "btn-send mb-3" %>
                       <% end %>
                     </div>
+
                   </div>
-                </ul>
+                </div>
+              </ul>
 
             </div>
           </div>

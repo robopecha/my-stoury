@@ -4,7 +4,7 @@
   align-items: flex-start;
   padding: 16px 32px;
   border-radius: 50px;
-  background: #ade8ca;
+  background: $light-green;
   color: #250c09;
   // width: 160px;
   text-align: center;
@@ -15,6 +15,7 @@
 
 .button:hover {
   transform: scale(1.02) translateY(-0.2rem);
+  color: #250c09;
 }
 
 .button.button-primary {
@@ -33,4 +34,42 @@
   background: $color-danger;
   color: white;
   padding: 8px 16px;
+}
+
+.btn-circle {
+  width: 94px;
+  height: 94px;
+  padding: 0px 15px;
+  border-radius: 50%;
+  font-size: 68px;
+  text-align: center;
+  background: $color-primary;
+  color: white;
+  position: fixed;
+  top: 100px;
+  right: 70px;
+  box-shadow: 2px 2px 6px #7b6c6c;
+  border: none;
+}
+
+.btn-circle:hover {
+  color: white;
+  background-color: $light-green;
+}
+
+.btn-chat {
+  background-color: $color-primary;
+  padding: 8px 24px;
+  width: 100px;
+  color: white;
+  border: none;
+  border-top-left-radius: 5px;
+}
+
+.btn-send {
+ background-color: $color-primary;
+ color: white;
+ border: none;
+ border-radius: 3px;
+ padding: 0 8px 0 8px;
 }

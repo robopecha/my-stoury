@@ -1,10 +1,11 @@
 
-<div class="container">
+<div class="container position-relative">
 
   <h3 class="mt-5">All tours</h3>
   <%= render '/shared/search' %>
   <%# <a class="btn btn-ghost mt-2 mb-4" href="tour/new">Add a new tour</a> %>
-  <%= link_to "Add a new tour", new_tour_path, class: "button button-primary mt-2" %>
+  <%#= link_to "Add a new tour", new_tour_path, class: "button button-primary mt-2" %>
+
 
   <div class="travel-card-container">
     <% @tours.each do |tour| %>
@@ -35,8 +36,26 @@
           </div>
         </div>
         <% end %>
-
     <% end %>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn-circle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      +
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Create a new tour</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render "form" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 
