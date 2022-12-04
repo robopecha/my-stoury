@@ -48,8 +48,15 @@
 
 //}
 
-.user-tag a {
-  display: none;
+.user-tag {
+  position: relative;
+
+  a {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: none;
+  }
 }
 
 .user-tag:hover a {
