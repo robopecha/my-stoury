@@ -2,6 +2,11 @@
   padding-top: 1rem;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .tour-header {
   display: flex;
   align-items: center;
@@ -17,6 +22,11 @@
   }
 }
 
+.tour-users{
+  display: flex;
+  justify-content: flex-end;
+}
+
 .add-container {
   position: relative;
   display: flex;
@@ -24,21 +34,33 @@
   justify-content: center;
 }
 
-.user-tag {
-  display: inline-flex;
-  align-items: center;
+//.user-tag {
+  // display: inline-flex;
+  // align-items: flex-end;
 
-  padding: 0.2rem 0.5rem;
-  border-radius: 5px;
-  background-color: $lightred;
+  // padding: 0.2rem 0.5rem;
+  // border-radius: 5px;
+  // background-color: $lightred;
 
-  p {
-    margin: 0 0.2rem;
-  }
+  // p {
+  //   margin: 0 0.2rem;
+  // }
 
-  a {
-    display: inline-block;
-  }
+//}
+
+.user-tag a {
+  display: none;
+}
+
+.user-tag:hover a {
+  display: block;
+  color: $red;
+}
+
+.user-avatars {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .sites-container {
@@ -123,7 +145,7 @@
   left: 10px;
   border: none;
   background-color: $lightgreen;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  // box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   padding: 1rem;
   border-radius: 50%;
 }
@@ -135,7 +157,9 @@
 .btn-new-user {
   display: inline-block;
   background-color: $lightgreen;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  // box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   padding: 0.8rem;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
