@@ -177,6 +177,7 @@
 
 .btn-new-user:hover {
   background-color: $lightgreen;
+  transition: all 0.2s;
 
   .fa-user-plus {
     color: $button-text-dark;
