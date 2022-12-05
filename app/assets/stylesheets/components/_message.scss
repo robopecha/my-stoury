@@ -1,0 +1,20 @@
+.message-form-other {
+  background-color: $lightgreen;
+  border-radius: 10px 10px 10px 0;
+  margin-bottom: 12px;
+  padding: 6px;
+  width: 180px;
+}
+
+.message-form-user {
+  background-color: $darkgreen;
+  border-radius: 10px 10px 0 10px;
+  margin-bottom: 12px;
+  padding: 6px;
+  color: white;
+  width: 180px;
+}
+
+.p-form {
+  margin: 0;
+}
