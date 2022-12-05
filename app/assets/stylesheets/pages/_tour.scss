@@ -22,7 +22,7 @@
   }
 }
 
-.tour-users{
+.tour-users {
   display: flex;
   justify-content: flex-end;
 }
@@ -35,16 +35,16 @@
 }
 
 //.user-tag {
-  // display: inline-flex;
-  // align-items: flex-end;
+// display: inline-flex;
+// align-items: flex-end;
 
-  // padding: 0.2rem 0.5rem;
-  // border-radius: 5px;
-  // background-color: $lightred;
+// padding: 0.2rem 0.5rem;
+// border-radius: 5px;
+// background-color: $lightred;
 
-  // p {
-  //   margin: 0 0.2rem;
-  // }
+// p {
+//   margin: 0 0.2rem;
+// }
 //}
 
 .user-tag {
@@ -107,6 +107,19 @@
   position: absolute;
   top: 0;
   right: 0;
+
+  h3 {
+    display: inline-block;
+  }
+}
+
+.site-form-input {
+  transition: all 0.3s;
+}
+
+.site-form-input.hide {
+  height: 0;
+  opacity: 0;
 }
 
 .site-card {
@@ -170,7 +183,6 @@
   width: 40px;
   border-radius: 50%;
 
-
   .fa-user-plus {
     color: white;
   }
@@ -183,5 +195,4 @@
   .fa-user-plus {
     color: $button-text-dark;
   }
-
 }
