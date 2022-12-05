@@ -1,0 +1,20 @@
+.modal-add-user {
+  height: 150px;
+}
+
+#modal-home {
+  font-family: $headers-font;
+  text-shadow: none;
+  color: black;
+}
+
+.modal-content {
+  background-color: $light-green;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgb(133, 131, 131);
+}
+
+.form:hover {
+  border: 1px solid $color-primary;
+  box-shadow: 3px 3px 6px $color-primary;
+}
