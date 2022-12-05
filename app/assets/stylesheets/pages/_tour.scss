@@ -30,7 +30,7 @@
 
   padding: 0.2rem 0.5rem;
   border-radius: 5px;
-  background-color: #f7a4a4;
+  background-color: $lightred;
 
   p {
     margin: 0 0.2rem;
@@ -108,7 +108,7 @@
 }
 
 .site-card.highlight {
-  background-color: #ade792;
+  background-color: $lightgreen;
 }
 
 .info-btn {
@@ -122,19 +122,19 @@
   bottom: 10px;
   left: 10px;
   border: none;
-  background-color: #ade792;
+  background-color: $lightgreen;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   padding: 1rem;
   border-radius: 50%;
 }
 
 .btn-site.red {
-  background-color: #f7a4a4;
+  background-color: $lightred;
 }
 
 .btn-new-user {
   display: inline-block;
-  background-color: #a5f1e9;
+  background-color: $lightgreen;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   padding: 0.8rem;
   border-radius: 50%;
