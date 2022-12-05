@@ -7,6 +7,11 @@ class SitesController < ApplicationController
   def show
     @site = Site.find(params[:id])
     @note = Note.new
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "sites/notes", locals: {site: @site}, formats: [:html] }
+    end
   end
 
   def new

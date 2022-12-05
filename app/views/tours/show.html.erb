@@ -58,16 +58,17 @@
 
 
 
-    <div class="add-container mx-2 chat-container">
-
-
+    <div class="add-container mx-2 chat-container"
+         data-controller="show-site"
+    >
 
         <% if @tour.sites.size > 0 %>
           <div class="sites-container" data-tour-view-target="sites">
 
             <% @tour.sites.each do |site| %>
 
-              <div class="site-card" data-flat-id="<%= site.id %>">
+              <div class="site-card" data-action ="click->show-site#switch" data-site-id="<%= site.id %>"
+              >
                 <h4><%= site.name %></h4>
                 <div class="site-card-info">
                   <p><%= site.address %></p>
@@ -90,11 +91,13 @@
           </div>
         <% end %>
 
+        <div data-show-site-target="site"></div>
+
+
         <div id="map" class="tour-map"></div>
 
 
         <% if current_user == @tour.user || !User.excluding(@tour.tour_users.map(&:user)).include?(current_user) %>
-
           <div class="footer">
             <div class="btn-group dropup"
               data-controller="chatroom-subscription"
