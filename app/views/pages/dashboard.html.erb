@@ -3,7 +3,7 @@
 <div class="container position-relative">
 
 
-  <h2 class="mt-5">My Tours</h2>
+  <h2 class="mt-5 title">My Tours</h2>
 
   <%# <a class="btn btn-ghost mt-2 mb-4" href="tour/new">Add a new tour</a> %>
   <%#= link_to "Add a tour", new_tour_path, class: "button button-primary"  %>
@@ -44,17 +44,19 @@
             <p><%= tour.description %></p>
           </div>
         <% end %>
-        <div class="travel-card-links" data-controller="locker">
-          <%= link_to "Edit", edit_tour_path(tour), class: "button button-update" %>
+        <div class="buffer">
+          <div class="travel-card-links" data-controller="locker">
+            <%= link_to "Edit", edit_tour_path(tour), class: "button button-update" %>
 
-          <%= link_to "Delete", tour_path(tour), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{tour.name} from your tours?"}, class: "button button-danger" %>
+            <%= link_to "Delete", tour_path(tour), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{tour.name} from your tours?"}, class: "button button-danger" %>
 
-          <div class="lockbutton">
-            <% if tour.privacy %>
-              <i class="fa-solid fa-lock" title="private" data-action="click->locker#switch" data-id=<%=tour.id%>></i>
-            <% else %>
-              <i class="fa-solid fa-lock-open" title="public" data-action="click->locker#switch" data-id=<%=tour.id%>></i>
-            <% end %>
+            <div class="lockbutton">
+              <% if tour.privacy %>
+                <i class="fa-solid fa-lock" title="private" data-action="click->locker#switch" data-id=<%=tour.id%>></i>
+              <% else %>
+                <i class="fa-solid fa-lock-open" title="public" data-action="click->locker#switch" data-id=<%=tour.id%>></i>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
