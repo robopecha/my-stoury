@@ -1,9 +1,30 @@
 <div class="banner" >
 
   <h1>My Stoury</h1>
-  <%= render '/shared/search'%>
+  <%= render '/shared/search' %>
   <div class="banner-buttons">
-    <%= link_to "Create a tour", new_tour_path, class: "button"%>
+    <%#= link_to "Create a tour", new_tour_path, class: "button"%>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Create a tour
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modal-home">Create a new tour</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render "tours/form" %>
+           </div>
+        </div>
+      </div>
+    </div>
+
     <%= link_to "See all tours", tours_path, class: "button" %>
   </div>
 

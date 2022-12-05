@@ -17,6 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  template: template0
   collation: en_US.UTF-8
   ctype: en_US.UTF-8
 
