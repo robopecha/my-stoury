@@ -4,8 +4,8 @@
   align-items: flex-start;
   padding: 16px 32px;
   border-radius: 50px;
-  background: $light-green;
-  color: #250c09;
+  background: $lightgreen;
+  color: $button-text-dark;
   // width: 160px;
   text-align: center;
   font-size: 16px;
@@ -19,20 +19,20 @@
 }
 
 .button.button-primary {
-  background: $color-primary;
+  background: $darkgreen;
   color: white;
   padding: 8px 16px;
 }
 
 .button.button-update {
-  background: $color-update;
-  color: white;
+  background: $lightgreen;
+  color: $button-text-dark;
   padding: 8px 16px;
 }
 
 .button.button-danger {
-  background: $color-danger;
-  color: white;
+  background: $lightred;
+  color: $button-text-dark;
   padding: 8px 16px;
 }
 

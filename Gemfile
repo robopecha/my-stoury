@@ -86,4 +86,4 @@ gem "geocoder"
 
 gem "cloudinary"
 
-gem "pg_search"
+gem 'redis', '~> 5.0'
