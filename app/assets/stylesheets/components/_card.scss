@@ -100,6 +100,12 @@
   gap: 10px;
 }
 
+.travel-card-text > p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 // .img-gray-scale {
 //   filter: gray; /* IE6-9 */
