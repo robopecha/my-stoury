@@ -1,7 +1,23 @@
-<div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.username %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
-</div>
+<% if message.user.username == current_user.username %>
+  <div class="d-flex justify-content-end">
+    <div class="message-form-user" id="message-<%= message.id %>">
+      <small>
+        <strong><%= message.user.username %></strong>
+        <%# <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %>
+        <%# </i> %>
+      </small>
+      <p class="p-form"><%= message.content %></p>
+    </div>
+  </div>
+<% else %>
+  <div class="d-flex justify-content-start">
+    <div class="message-form-other" id="message-<%= message.id %>">
+      <small>
+        <strong><%= message.user.username %></strong>
+        <%# <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %>
+        <%# </i> %>
+      </small>
+      <p class="p-form"><%= message.content %></p>
+    </div>
+  </div>
+<% end %>
