@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :tour_users
   has_many :tours, dependent: :destroy
   has_many :added_tours, through: :tour_users, source: :tour
+  has_one_attached :photo
 
   validates :username, presence: true
 
