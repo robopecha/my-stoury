@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "pages#dashboard"
   get "/tours/:id/lock", to: "tours#lock"
+  get "/tours/:id/show_notes", to: "tours#show_notes", as: "tours_show_notes"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :tours, only: %i[new create] do
     resources :tour_users, only: %i[new create]
