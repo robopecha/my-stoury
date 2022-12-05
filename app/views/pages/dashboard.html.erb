@@ -1,3 +1,5 @@
+
+
 <div class="container position-relative">
 
 
@@ -47,16 +49,16 @@
                     <p><%= tour.description%></p>
                 <% end %>
             </div>
-            <div class="travel-card-links">
+            <div class="travel-card-links" data-controller="locker">
                 <%= link_to "Edit", edit_tour_path(tour), class: "button button-update" %>
 
                 <%= link_to "Delete", tour_path(tour), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{tour.name} from your tours?"}, class: "button button-danger" %>
 
-                <%if tour.privacy == false%>
-                  <i class="fa-solid fa-lock-open" title="public"></i>
+                <% if tour.privacy %>
+                  <i class="fa-solid fa-lock" title="public" data-action="click->locker#switch" data-id=<%=tour.id%>></i>
                 <% else %>
-                  <i class="fa-sharp fa-solid fa-lock" title="private"></i>
-                <%end %>
+                  <i class="fa-solid fa-lock-open" title="public" data-action="click->locker#switch" data-id=<%=tour.id%>></i>
+                <% end %>
             </div>
           </div>
         </div>

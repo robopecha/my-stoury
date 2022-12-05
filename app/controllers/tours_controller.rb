@@ -20,7 +20,7 @@ class ToursController < ApplicationController
     @message = Message.new
     @tour_user = TourUser.new
     @other_users = User.excluding(current_user, @tour.tour_users.map(&:user)) # @tour.tour_users.map { |tour_user| tour_user.user }
-    
+
 
     if @sites.size > 0
       @markers = @sites.geocoded.map do |site|
@@ -64,6 +64,12 @@ class ToursController < ApplicationController
     @tour = Tour.find(params[:id])
     @tour.update(tour_params)
     redirect_to tour_path(@tour)
+  end
+
+  def lock
+    @tour = Tour.find(params[:id])
+    @tour.privacy = !@tour.privacy
+    @tour.save
   end
 
   def destroy
