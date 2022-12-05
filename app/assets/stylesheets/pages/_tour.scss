@@ -2,6 +2,11 @@
   padding-top: 1rem;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .tour-header {
   display: flex;
   align-items: center;
@@ -17,6 +22,11 @@
   }
 }
 
+.tour-users{
+  display: flex;
+  justify-content: flex-end;
+}
+
 .add-container {
   position: relative;
   display: flex;
@@ -24,21 +34,39 @@
   justify-content: center;
 }
 
+//.user-tag {
+  // display: inline-flex;
+  // align-items: flex-end;
+
+  // padding: 0.2rem 0.5rem;
+  // border-radius: 5px;
+  // background-color: $lightred;
+
+  // p {
+  //   margin: 0 0.2rem;
+  // }
+//}
+
 .user-tag {
-  display: inline-flex;
-  align-items: center;
-
-  padding: 0.2rem 0.5rem;
-  border-radius: 5px;
-  background-color: $lightred;
-
-  p {
-    margin: 0 0.2rem;
-  }
+  position: relative;
 
   a {
-    display: inline-block;
+    position: absolute;
+    top: -6px;
+    right: -3px;
+    display: none;
   }
+}
+
+.user-tag:hover a {
+  display: block;
+  color: $red;
+}
+
+.user-avatars {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .sites-container {
@@ -123,7 +151,7 @@
   left: 10px;
   border: none;
   background-color: $lightgreen;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  // box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   padding: 1rem;
   border-radius: 50%;
 }
@@ -134,8 +162,24 @@
 
 .btn-new-user {
   display: inline-block;
-  background-color: $lightgreen;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  padding: 0.8rem;
+  background-color: $darkgreen;
+  // box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  text-align: center;
+  padding-top: 8px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
+
+  .fa-user-plus {
+    color: white;
+  }
+}
+
+.btn-new-user:hover {
+  background-color: $lightgreen;
+  transition: all 0.2s;
+
+  .fa-user-plus {
+    color: $button-text-dark;
+  }
 }
