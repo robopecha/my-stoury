@@ -98,7 +98,7 @@ sites = [{name: "Hamburger Dom", address: "Heiligengeistfeld, 20359 Hamburg", si
 
 tours.each_with_index do |tour, index|
   tour = Tour.new(name: tour[:name], description: tour[:description])
-  tour.user = User.create(email: Faker::Internet.email, username: Faker::Internet.username, password: '123456')
+  tour.user = User.create(email: Faker::Internet.email, username: Faker::Internet.username, password: '123456', img_url: Faker::Avatar.image)
   tour.photo.attach(io: URI.open(tours[index][:images]), filename: 'tourImage')
   tour.save
   puts "#{tour.name} created"

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "/dashboard", to: "pages#dashboard"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :tours, only: %i[new create] do
     resources :tour_users, only: %i[new create]
