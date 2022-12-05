@@ -1,0 +1,20 @@
+.searchhome-button {
+  background: $red !important;
+  padding: 0px 32px ;
+  border-radius: 16px;
+  border: solid 1px $red;
+  border-radius: 0px 50px 50px 0px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+.searchhomeinput{
+  padding: 16px 16px 16px 40px;
+  background: #F6F3F3;
+  border-radius: 50px 0px 0px 50px;
+  height: 45px;
+  display: flex;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+.form-box {
+  max-width: 640px;
+  display: flex;
+}
