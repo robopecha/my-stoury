@@ -16,5 +16,8 @@ application.register("locker", LockerController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import ShowSiteController from "./show_site_controller"
+application.register("show-site", ShowSiteController)
+
 import TourViewController from "./tour_view_controller"
 application.register("tour-view", TourViewController)
