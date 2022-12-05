@@ -4,8 +4,10 @@ class ToursController < ApplicationController
   def index
     if params[:query].present?
       @tours = Tour.search_by_name_and_description(params[:query])
+      @tour = Tour.new
     else
       @tours = Tour.where(privacy: false)
+      @tour = Tour.new
     end
   end
 
@@ -16,6 +18,9 @@ class ToursController < ApplicationController
     @sites = Site.where("tour_id = ?", @tour.id)
     @chatroom = @tour.chatroom
     @message = Message.new
+    @tour_user = TourUser.new
+    @other_users = User.excluding(current_user, @tour.tour_users.map(&:user)) # @tour.tour_users.map { |tour_user| tour_user.user }
+    
 
     if @sites.size > 0
       @markers = @sites.geocoded.map do |site|
