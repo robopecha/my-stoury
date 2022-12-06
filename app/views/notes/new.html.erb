@@ -1,1 +1,8 @@
-<%= render "form" %>
+<div class="container my-5 w-75 ">
+  <div class="my-5">
+    <%= link_to "Back to tour", tour_path(@site.tour), class: "button button-primary" %>
+  </div>
+
+  <h3>Add a new note</h3>
+  <%= render "form" %>
+</div>

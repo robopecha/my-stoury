@@ -1,29 +1,27 @@
 <div class="container-fluid tour-container" data-controller="map tour-view" data-map-markers-value="<%= @markers.to_json %>">
-  <%# <div  data-controller="tour_view"> %>
 
-
-    <div class="header">
-      <div class="tour-header">
-        <div class="tour-header-text">
-          <h3><%= @tour.name %></h3>
-          <p><%= @tour.description %></p>
-        </div>
+  <div class="header">
+    <div class="tour-header">
+      <div class="tour-header-text">
+        <h3><%= @tour.name %></h3>
+        <p><%= @tour.description %></p>
       </div>
+    </div>
 
-      <% if @tour.user == current_user %>
+    <% if @tour.user == current_user %>
 
-        <%# <div class="tour-header-users"> %>
-
-
+      <div class="d-flex flex-column">
         <div class="tour-users">
+
           <!-- Button trigger modal -->
           <button type="button" class="btn-new-user" title="Add a friend" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
 
             <i class="fa-solid fa-user-plus"></i>
           </button>
 
           <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -55,52 +53,58 @@
               <% end %>
             </div>
           <% end %>
-        </div>
-      <% end %>
-    </div>
 
-      <%= link_to "All notes", tours_show_notes_path, class: "button button-update" %>
+        </div>
+
+          <div class="mt-5 px-4 text-end">
+            <%= link_to "Blog view", tours_show_notes_path, class: "button button-update" %>
+          </div>
+
+        <%# </div> %>
+      </div>
+    <% end %>
+
+  </div>
 
 
 
     <div class="add-container mx-2 chat-container"
          data-controller="show-site"
     >
+      <% if @tour.sites.size > 0 %>
+        <div class="sites-container" data-tour-view-target="sites">
 
-        <% if @tour.sites.size > 0 %>
-          <div class="sites-container" data-tour-view-target="sites">
+          <% @tour.sites.each do |site| %>
 
-            <% @tour.sites.each do |site| %>
+            <div class="site-card" data-action ="click->show-site#switch" data-site-id="<%= site.id %>"
+            >
+              <h4><%= site.name %></h4>
+              <div class="site-card-info">
+                <%# <p>= site.address</p> %>
+                <%= link_to site_path(site), class: "card-tour-button" do %>
+                  <i class="fa-solid fa-eye"></i>
+                <% end %>
+                <% if site.tour.user == current_user %>
 
-              <div class="site-card" data-action ="click->show-site#switch" data-site-id="<%= site.id %>"
-              >
-                <h4><%= site.name %></h4>
-                <div class="site-card-info">
-                  <p><%= site.address %></p>
-                  <%= link_to site_path(site), class: "card-tour-button" do %>
-                    <i class="fa-solid fa-eye"></i>
+                  <%= link_to new_site_note_path(site) do %>
+                    <i class="fa-solid fa-pen-to-square" class="properlink"></i>
                   <% end %>
-                  <% if site.tour.user == current_user %>
-                    <%= link_to new_site_note_path(site) do %>
-                      <i class="fa-solid fa-pen-to-square" class="properlink"></i>
-                    <% end %>
-                    <%= link_to site_path(site), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{site.name} from your tour?"}, class: "card-tour-button" do %>
-                      <i class="fa-sharp fa-solid fa-circle-xmark"></i>
-                    <% end %>
-                  <% end %>
-                </div>
 
+                  <%= link_to site_path(site), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{site.name} from your tour?"}, class: "card-tour-button" do %>
+                    <i class="fa-sharp fa-solid fa-circle-xmark"></i>
+                  <% end %>
+
+                <% end %>
               </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
 
-            <% end %>
-          </div>
-        <% end %>
-
-        <div data-show-site-target="site"></div>
+      <div class="notes-container" data-show-site-target="site"></div>
 
 
-        <div id="map" class="tour-map"></div>
-
+      <div id="map" class="tour-map"></div>
 
         <% if current_user == @tour.user || !User.excluding(@tour.tour_users.map(&:user)).include?(current_user) %>
           <div class="footer">
@@ -148,22 +152,17 @@
           </div>
         <% end %>
 
-
-        <%= render "sites/form" %>
-
-
+      <%= render "sites/form" %>
 
     </div>
 
 
-    <div>
-      <% if @tour.sites.size > 0 %>
-        <button class="btn-site" data-tour-view-target="siteBtn" data-action="click->tour-view#siteToggleHide">
-          <i class="fa-solid fa-map-location-dot"></i>
-        </button>
-      <% end %>
-    </div>
-
-  <%# </div> %>
+  <div>
+    <% if @tour.sites.size > 0 %>
+      <button class="btn-site" data-tour-view-target="siteBtn" data-action="click->tour-view#siteToggleHide">
+        <i class="fa-solid fa-map-location-dot"></i>
+      </button>
+    <% end %>
+  </div>
 
 </div>

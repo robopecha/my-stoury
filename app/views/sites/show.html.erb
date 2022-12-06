@@ -5,11 +5,12 @@
 
   </div>
 <% end %>
+
 <div class="container mt-5">
 
-
-  <%= link_to "Back to tour", tour_path(@site.tour), class: "button button-primary" %>
-
+  <div class="my-4">
+    <%= link_to "Back to tour", tour_path(@site.tour), class: "button button-primary" %>
+  </div>
 
   <div class="card-note-container">
 
@@ -17,29 +18,30 @@
     <br>
       <div class="card-note">
 
-      <%= note.rich_content %>
-      <%# <%= raise if @site.notes.last == note %>
-      <% if note.photos.first %>
-        <% note.photos.each do |photo| %>
-          <%= photo.key %>
-          <%= cl_image_tag photo.key %>
-        <% end %>
-      <% end %>
+        <%= note.rich_content %>
 
-      <% if @site.tour.user == current_user %>
-        <%= link_to "Edit", edit_note_path(note),  class: "button button-update" %>
-      <% end %>
+        <% if note.photos.first %>
+          <% note.photos.each do |photo| %>
+            <%= photo.key %>
+            <%= cl_image_tag photo.key %>
+          <% end %>
+        <% end %>
+
+        <div class="my-3 d-flex justify-content-end">
+          <% if @site.tour.user == current_user %>
+            <%= link_to "Edit", edit_note_path(note),  class: "button button-update" %>
+          <% end %>
+        </div>
 
       </div>
-  <% end %>
-
-
+    <% end %>
   </div>
 
-
-
   <% if @site.tour.user == current_user %>
-    <%= render "notes/form" %>
+    <div class="container my-5 w-75 ">
+      <h3>Create a new note</h3>
+      <%= render "notes/form" %>
+    </div>
   <% end %>
 
 </div>
