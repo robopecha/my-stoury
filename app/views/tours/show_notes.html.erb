@@ -1,5 +1,5 @@
 <% if @tour.photo.key %>
-  <div class="banner-site" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(<%= cl_image_path(@tour.photo.key)%>);">
+  <div class="banner-site" style="background-image: url(<%= cl_image_path(@tour.photo.key)%>);">
 
       <h1><%= @tour.name %></h1>
 
@@ -11,37 +11,37 @@
   <div class="notes-container container mt-5">
 
 
-  <% @sites.each do |site| %>
-    <div class="site-container">
+    <% @sites.each do |site| %>
+      <div class="site-container blog-site">
 
-      <h2 class="text-center mt-2" id="<%=site.id%>"><%= site.name %></h2>
+        <h2 class="text-center mt-2" id="<%=site.id%>"><%= site.name %></h2>
 
-      <div class="card-note-container">
+        <div class="card-note-container">
 
-        <% site.notes.each do |note| %>
-        <br>
-          <div class="card-note">
+          <% site.notes.each do |note| %>
+          <br>
+            <div class="card-note">
 
-            <%= note.rich_content %>
+              <%= note.rich_content %>
 
-            <% if note.photos.first %>
-              <% note.photos.each do |photo| %>
-                <%= photo.key %>
-                <%= cl_image_tag photo.key %>
+              <% if note.photos.first %>
+                <% note.photos.each do |photo| %>
+                  <%= photo.key %>
+                  <%= cl_image_tag photo.key %>
+                <% end %>
               <% end %>
-            <% end %>
 
 
-          </div>
-        <% end %>
+            </div>
+          <% end %>
+
+        </div>
+
 
       </div>
 
 
-    </div>
-
-
-  <% end %>
+    <% end %>
 
 
   </div>
@@ -49,9 +49,9 @@
 
   <div class="notes-nav">
     <% @sites.each do |site| %>
-      <a href="#<%=site.id%>" class="notes-nav-item"><%= site.name %></a>
+      <a href="#<%=site.id%>" class="notes-nav-item"><h5><%= site.name %></h5></a>
     <% end %>
-    <%= link_to "Back to tour", tour_path(@tour), class: "button button-primary" %>
+    <%= link_to "Back to tour", tour_path(@tour), class: "button button-primary bottom" %>
   </div>
 
 </div>
