@@ -8,13 +8,13 @@
       </div>
     </div>
 
-    <% if @tour.user == current_user %>
+    <% if @tour.user == current_user  || !User.excluding(@tour.tour_users.map(&:user)).include?(current_user) %>
 
       <div class="d-flex flex-column">
         <div class="tour-users">
 
           <!-- Button trigger modal -->
-          <button type="button" class="btn-new-user" title="Add a friend" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn-new-user" title="Add a friend" data-bs-toggle="modal" data-bs-target="#addUserModal">
 
 
             <i class="fa-solid fa-user-plus"></i>
@@ -84,7 +84,7 @@
                 <%= link_to site_path(site), class: "card-tour-button" do %>
                   <i class="fa-solid fa-eye"></i>
                 <% end %>
-                <% if site.tour.user == current_user %>
+                <% if site.tour.user == current_user  || !User.excluding(@tour.tour_users.map(&:user)).include?(current_user) %>
 
                   <%= link_to new_site_note_path(site) do %>
                     <i class="fa-solid fa-pen-to-square" class="properlink"></i>
@@ -158,11 +158,11 @@
 
 
   <div>
-    <% if @tour.sites.size > 0 %>
-      <button class="btn-site" data-tour-view-target="siteBtn" data-action="click->tour-view#siteToggleHide">
+
+      <%# <button class="btn-site" data-tour-view-target="siteBtn" data-action="click->tour-view#siteToggleHide">
         <i class="fa-solid fa-map-location-dot"></i>
-      </button>
-    <% end %>
+      </button> %>
+
   </div>
 
 </div>

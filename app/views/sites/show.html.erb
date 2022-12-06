@@ -28,7 +28,7 @@
         <% end %>
 
         <div class="my-3 d-flex justify-content-end">
-          <% if @site.tour.user == current_user %>
+          <% if @site.tour.user == current_user || !User.excluding(@site.tour.tour_users.map(&:user)).include?(current_user) %>
             <%= link_to "Edit", edit_note_path(note),  class: "button button-update" %>
           <% end %>
         </div>
@@ -37,7 +37,7 @@
     <% end %>
   </div>
 
-  <% if @site.tour.user == current_user %>
+  <% if @site.tour.user == current_user || !User.excluding(@site.tour.tour_users.map(&:user)).include?(current_user) %>
     <div class="container my-5 w-75 ">
       <h3>Create a new note</h3>
       <%= render "notes/form" %>
