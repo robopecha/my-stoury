@@ -11,7 +11,7 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to site_path(@note.site)
     else
-      render :new, status: unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

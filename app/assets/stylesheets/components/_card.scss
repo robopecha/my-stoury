@@ -48,14 +48,15 @@
   padding: 0.8rem 1.5rem;
   margin: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 .card-note-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  // display: flex;
+  // justify-content: flex-start;
+  // align-items: flex-stat;
+  // flex-wrap: wrap;
 }
 
 .travel-card {
@@ -64,6 +65,7 @@
   margin: 1rem;
   max-width: 20rem;
   background-color: white;
+  border-radius: 5px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -2px rgba(0, 0, 0, 0.1);
 
@@ -85,6 +87,10 @@
       margin: 0;
     }
   }
+}
+
+.travel-card-text {
+  margin-top: 8px;
 }
 
 .travel-card-text p {
