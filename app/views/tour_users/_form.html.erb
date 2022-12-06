@@ -1,4 +1,4 @@
 <%= simple_form_for [@tour, @tour_user ] do |f| %>
-  <%= f.association :user, collection: @other_users, label_method: :username  %>
+  <%= f.association :user, collection: @other_users, label_method: :username, label: "Friend"  %>
   <%= f.submit "add friend", class: "button button-primary" %>
 <% end %>

@@ -1,15 +1,14 @@
 <% if @site.photo.key %>
   <div class="banner-site" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(<%= cl_image_path(@site.photo.key)%>);">
-
-      <h1><%= @site.name %></h1>
-
+    <h1><%= @site.name %></h1>
   </div>
 <% end %>
+
 <div class="container mt-5">
 
-
-  <%= link_to "Back to tour", tour_path(@site.tour), class: "button button-primary" %>
-
+  <div class="my-4">
+    <%= link_to "Back to tour", tour_path(@site.tour), class: "button button-primary" %>
+  </div>
 
   <div class="card-note-container">
 
@@ -17,25 +16,24 @@
     <br>
       <div class="card-note">
 
-      <%= note.rich_content %>
-      <%# <%= raise if @site.notes.last == note %>
-      <% if note.photos.first %>
-        <% note.photos.each do |photo| %>
-          <%= photo.key %>
-          <%= cl_image_tag photo.key %>
-        <% end %>
-      <% end %>
+        <%= note.rich_content %>
 
-      <% if @site.tour.user == current_user %>
-        <%= link_to "Edit", edit_note_path(note),  class: "button button-update" %>
-      <% end %>
+        <% if note.photos.first %>
+          <% note.photos.each do |photo| %>
+            <%= photo.key %>
+            <%= cl_image_tag photo.key %>
+          <% end %>
+        <% end %>
+
+        <div class="my-3 d-flex justify-content-end">
+          <% if @site.tour.user == current_user %>
+            <%= link_to "Edit", edit_note_path(note),  class: "button button-update" %>
+          <% end %>
+        </div>
 
       </div>
-  <% end %>
-
-
+    <% end %>
   </div>
-
 
 
   <% if @site.tour.user == current_user %>
