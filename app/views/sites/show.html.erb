@@ -35,9 +35,11 @@
     <% end %>
   </div>
 
-
   <% if @site.tour.user == current_user %>
-    <%= render "notes/form" %>
+    <div class="container my-5 w-75 ">
+      <h3>Create a new note</h3>
+      <%= render "notes/form" %>
+    </div>
   <% end %>
 
 </div>
