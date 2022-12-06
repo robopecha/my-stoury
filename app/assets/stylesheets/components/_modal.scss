@@ -9,12 +9,12 @@
 }
 
 .modal-content {
-  background-color: $light-green;
+  background-color: $lightgreen;
   border-radius: 5px;
   box-shadow: 2px 2px 10px rgb(133, 131, 131);
 }
 
 .form:hover {
-  border: 1px solid $color-primary;
-  box-shadow: 3px 3px 6px $color-primary;
+  border: 1px solid $darkgreen;
+  box-shadow: 3px 3px 6px $darkgreen;
 }

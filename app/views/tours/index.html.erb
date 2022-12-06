@@ -1,58 +1,55 @@
 
 <div class="container position-relative">
 
-  <h3 class="mt-5">All tours</h3>
-  <%= render '/shared/search' %>
+  <h2 class="mt-5">All Tours</h2>
+
+  <%= render '/shared/searchindex' %>
+
   <%# <a class="btn btn-ghost mt-2 mb-4" href="tour/new">Add a new tour</a> %>
   <%#= link_to "Add a new tour", new_tour_path, class: "button button-primary mt-2" %>
 
 
-  <div class="travel-card-container">
+  <div class = "cards">
     <% @tours.each do |tour| %>
-        <div class="travel-card">
-          <div class="travel-card-header">
-          <%= link_to tour_path(tour) do %>
-          <% if tour.photo.key? %>
-            <%= cl_image_tag tour.photo.key %>
-          <% end %>
-          <% end %>
-          </div>
-
-          <%= link_to tour_path(tour) do %>
-          <div class="travel-card-info">
-            <div class="travel-card-text">
-                <h3><%= tour.name %></h3>
-                <p><%= tour.description %></p>
-            </div>
-            <% if tour.user == current_user %>
-              <div class="travel-card-links">
-
-                  <%= link_to "Edit", edit_tour_path(tour), class: "button button-update" %>
-                  <%= link_to "Delete", tour_path(tour), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{tour.name} from your tours?"}, class: "button button-danger" %>
-
-
-              </div>
+      <div class = "travel-card">
+        <%= link_to tour_path(tour) do %>
+          <div class = "travel-card-header">
+            <% if tour.photo.key? %>
+              <%= cl_image_tag tour.photo.key %>
             <% end %>
           </div>
-        </div>
+          <div class = "travel-card-text">
+            <h3><%= tour.name %></h3>
+            <p><%= tour.description %></p>
+          </div>
         <% end %>
+        <% if tour.user == current_user %>
+          <div class="buffer">
+            <div class = "travel-card-links">
+              <%= link_to "Edit", edit_tour_path(tour), class: "button button-update" %>
+              <%= link_to "Delete", tour_path(tour), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{tour.name} from your tours?"}, class: "button button-danger" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn-circle" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      +
-    </button>
+  </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Create a new tour</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <%= render "form" %>
-          </div>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn-circle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    +
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Create a new tour</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= render "form" %>
         </div>
       </div>
     </div>

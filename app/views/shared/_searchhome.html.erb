@@ -1,0 +1,10 @@
+<div class="form-box mt-3">
+  <%= form_with url: tours_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control searchhomeinput",
+      placeholder: "Find a Tour"
+    %>
+    <%= submit_tag "Search", class: "searchhome-button  text-white" %>
+  <% end %>
+</div>

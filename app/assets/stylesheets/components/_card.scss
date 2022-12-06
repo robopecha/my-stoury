@@ -43,7 +43,23 @@
   width: 40px;
 }
 
+.card-note {
+  background-color: white;
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.card-note-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
 .travel-card {
+  position: relative;
   padding: 1rem;
   margin: 1rem;
   max-width: 20rem;
@@ -71,40 +87,43 @@
   }
 }
 
-.travel-card-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  overflow: auto;
-}
-
-.card-note {
-  background-color: white;
-  padding: 0.8rem 1.5rem;
-  margin: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1);
-}
-
-.card-note-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
+.travel-card-text p {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
 
 .travel-card-links {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 10px;
 }
 
-.travel-card-text > p {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.travel-card:hover {
+
+  .travel-card-text {
+    color: $red;
+  }
 }
+
+.buffer {
+  background-color: white;
+  height: 30px;
+}
+
+
+
+// .travel-card-container {
+//   display: flex;
+//   justify-content: center;
+//   flex-wrap: wrap;
+//   overflow: auto;
+// }
 
 
 // .img-gray-scale {
