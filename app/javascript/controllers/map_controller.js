@@ -61,7 +61,7 @@ export default class extends Controller {
     this.markersValue.forEach((marker) =>
       bounds.extend([marker.lng, marker.lat])
     );
-    map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+    map.fitBounds(bounds, { padding: 70, maxZoom: 14, duration: 0 });
   }
 
   #addMarkersToMap(map) {
