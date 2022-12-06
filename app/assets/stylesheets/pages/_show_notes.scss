@@ -1,0 +1,25 @@
+.notes-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.note-container {
+  width: 60%;
+  height: 150vh;
+}
+
+.notes-nav {
+  width: 25%;
+  margin-top: 5rem;
+  padding-top: 5rem;
+  height: 25vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  &-item {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+}

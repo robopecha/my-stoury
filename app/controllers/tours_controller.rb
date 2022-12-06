@@ -34,6 +34,11 @@ class ToursController < ApplicationController
     end
   end
 
+  def show_notes
+    @tour = Tour.find(params[:id])
+    @sites = Site.where("tour_id = ?", @tour.id)
+  end
+
   def new
     @tour = Tour.new
     @chatroom = Chatroom.new
