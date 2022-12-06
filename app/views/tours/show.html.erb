@@ -17,7 +17,7 @@
 
         <div class="tour-users">
           <!-- Button trigger modal -->
-          <button type="button" class="btn-new-user" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn-new-user" title="Add a friend" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <%#= link_to new_tour_tour_user_path(@tour), class: "btn-new-user", title: "Add User" do %>
 
             <i class="fa-solid fa-user-plus"></i>
@@ -42,8 +42,15 @@
           <% @tour.users.each do |user| %>
             <div class="user-tag">
               <% tour_user = TourUser.find_by(tour: @tour, user: user) %>
-              <%= image_tag "avatar.jpg", class: "user-avatars" %>
-              <!-- <p><%= user.username %></p> -->
+              <% if user.img_url %>
+                <div class="avatar-background">
+                  <%= image_tag user.img_url, class: "user-avatars", title: user.username %>
+                </div>
+              <% elsif user.photo.key %>
+                <%= cl_image_tag user.photo.key, class: "user-avatars", title: user.username %>
+              <% else %>
+                <%= image_tag "avatar.jpg", class: "user-avatars", title: user.username %>
+              <% end %>
               <%= link_to tour_user_path(tour_user), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{user.username} from your #{@tour.name} tour?" } do %>
                 <i class="fa-sharp fa-solid fa-circle-xmark"></i>
               <% end %>
@@ -57,16 +64,17 @@
 
 
 
-    <div class="add-container mx-2 chat-container">
-
-
+    <div class="add-container mx-2 chat-container"
+         data-controller="show-site"
+    >
 
         <% if @tour.sites.size > 0 %>
           <div class="sites-container" data-tour-view-target="sites">
 
             <% @tour.sites.each do |site| %>
 
-              <div class="site-card" data-flat-id="<%= site.id %>">
+              <div class="site-card" data-action ="click->show-site#switch" data-site-id="<%= site.id %>"
+              >
                 <h4><%= site.name %></h4>
                 <div class="site-card-info">
                   <p><%= site.address %></p>
@@ -89,11 +97,13 @@
           </div>
         <% end %>
 
+        <div data-show-site-target="site"></div>
+
+
         <div id="map" class="tour-map"></div>
 
 
         <% if current_user == @tour.user || !User.excluding(@tour.tour_users.map(&:user)).include?(current_user) %>
-
           <div class="footer">
             <div class="btn-group dropup"
               data-controller="chatroom-subscription"
