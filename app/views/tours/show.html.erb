@@ -60,8 +60,9 @@
       <% end %>
     </div>
 
-      <%= link_to "All notes", tours_show_notes_path, class: "button button-update" %>
-
+    <div class="mb-3 d-flex justify-content-end px-4">
+      <%= link_to "Blog view", tours_show_notes_path, class: "button button-update" %>
+    </div>
 
 
     <div class="add-container mx-2 chat-container"
@@ -99,7 +100,7 @@
           </div>
         <% end %>
 
-        <div data-show-site-target="site"></div>
+        <div class="notes-container" data-show-site-target="site"></div>
 
 
         <div id="map" class="tour-map"></div>
