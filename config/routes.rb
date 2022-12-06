@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "/dashboard", to: "pages#dashboard"
+  get "/profile", to: "pages#profile"
 
   get "/tours/:id/lock", to: "tours#lock"
   get "/tours/:id/blog_view", to: "tours#show_notes", as: "tours_show_notes"
