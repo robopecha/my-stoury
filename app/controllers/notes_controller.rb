@@ -26,6 +26,12 @@ class NotesController < ApplicationController
     redirect_to site_path(@note.site)
   end
 
+  def destroy
+    @note = Note.find(params[:id])
+    @note.destroy
+    redirect_to tour_path(@note.site.tour)
+  end
+
   private
 
   def note_params

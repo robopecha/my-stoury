@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :notes, only: %i[new create]
   end
 
-  resources :notes, only: %i[edit update]
+  resources :notes, only: %i[edit update destroy]
 
   resources :tour_users, only: :destroy
 

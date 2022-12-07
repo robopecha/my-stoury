@@ -30,6 +30,9 @@
         <div class="my-3 d-flex justify-content-end">
           <% if @site.tour.user == current_user || !User.excluding(@site.tour.tour_users.map(&:user)).include?(current_user) %>
             <%= link_to "Edit", edit_note_path(note),  class: "button button-update" %>
+            <br>
+            <div class="mx-1"></div>
+            <%= link_to "Delete", note_path(note), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this note from #{@site.name}?"}, class: "button button-danger" %>
           <% end %>
         </div>
 
