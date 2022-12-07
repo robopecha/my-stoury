@@ -1,5 +1,5 @@
 <div class="site-form">
-    <% if @tour.user == current_user %>
+    <% if @tour.user == current_user || !User.excluding(@tour.tour_users.map(&:user)).include?(current_user) %>
         <h3>Add a new site</h3>
         <button class="btn-form-toggle" data-tour-view-target="siteFormBtn" data-action="click->tour-view#siteFormToggleHide">
           <i class="fa-regular fa-square-minus fa-lg"></i>
@@ -9,7 +9,7 @@
     <div id="geocoder" class="geocoder mb-2" data-action="click->tour-view#siteFormShow"></div>
 
     <%= simple_form_for [@tour, @site], html: { class: "w-100 site-form-input", data: {tour_view_target: "siteForm"} } do |f| %>
-      <% if @tour.user == current_user %>
+      <% if @tour.user == current_user || !User.excluding(@tour.tour_users.map(&:user)).include?(current_user) %>
         <%= f.input :name, input_html: { id: 'site_name'} %>
         <%= f.input :address, input_html: { id: 'site_address'}, :as => :hidden %>
         <%= f.input :longitude, input_html: { id: 'site_longitude'}, :as => :hidden %>
