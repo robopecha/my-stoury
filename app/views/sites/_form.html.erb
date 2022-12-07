@@ -2,7 +2,7 @@
     <% if @tour.user == current_user || !User.excluding(@tour.tour_users.map(&:user)).include?(current_user) %>
         <h3>Add a new site</h3>
         <button class="btn-form-toggle" data-tour-view-target="siteFormBtn" data-action="click->tour-view#siteFormToggleHide">
-          <i class="fa-regular fa-square-minus fa-lg"></i>
+          <i class="fa-solid fa-angle-up"></i>
         </button>
     <% end %>
 
