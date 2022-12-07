@@ -9,6 +9,7 @@ export default class extends Controller {
 
   connect() {
     // mapboxgl.accessToken = this.apiKeyValue;
+    console.log("map connected4");
     mapboxgl.accessToken =
       "pk.eyJ1IjoibW1rcnR5IiwiYSI6ImNsYWF5aHhvbjA5NGEzcHFycXcwYmZlbmQifQ.8pNcwiBefjJDe0_UAJ62AA";
     console.log("hello");
@@ -20,13 +21,13 @@ export default class extends Controller {
       zoom: 0.4,
     });
 
-    const geocoder = new MapboxGeocoder({
+    this.geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl,
     });
 
-    document.getElementById("geocoder").appendChild(geocoder.onAdd(map));
-    geocoder.on("result", function (e) {
+    document.getElementById("geocoder").appendChild(this.geocoder.onAdd(map));
+    this.geocoder.on("result", function (e) {
       let geoInput = document.querySelector(".mapboxgl-ctrl-geocoder--input");
       console.log(geoInput);
       // document.getElementById("site_name").value =
@@ -47,6 +48,11 @@ export default class extends Controller {
     //     mapboxgl: mapboxgl,
     //   })
     // );
+  }
+
+  disconnect() {
+    console.log("disconnected from map controller");
+    this.geocoder.onRemove();
   }
 
   // #addMarkersToMap(map) {
@@ -116,5 +122,9 @@ export default class extends Controller {
     );
     // Then we toggle the class "highlight github" to the card
     card.classList.toggle("highlight");
+  }
+
+  #clearInputValue() {
+    this.addressTarget.value = "";
   }
 }
