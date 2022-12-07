@@ -1,0 +1,5 @@
+meta_name: "MyStoury"
+meta_title: "MyStoury - the only travel app you need"
+meta_description: "MyStoury, a web app which enables you to make a plan/record/blog for your trips all in one place."
+meta_image: "og_image.jpg" # should exist in `app/assets/images/`
+# twitter_account: "@your_twitter_account" # required for Twitter Cards
