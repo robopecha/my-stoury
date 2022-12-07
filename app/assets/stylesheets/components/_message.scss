@@ -1,18 +1,18 @@
-.message-form-other {
-  background-color: $lightgreen;
-  border-radius: 10px 10px 10px 0;
+.message-receiver, .message-sender {
   margin-bottom: 12px;
   padding: 6px;
   width: 180px;
 }
 
-.message-form-user {
+.message-sender {
   background-color: $darkgreen;
   border-radius: 10px 10px 0 10px;
-  margin-bottom: 12px;
-  padding: 6px;
   color: white;
-  width: 180px;
+}
+
+.message-receiver {
+  background-color: $lightgreen;
+  border-radius: 10px 10px 10px 0;
 }
 
 .p-form {
