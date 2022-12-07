@@ -11,9 +11,11 @@
     <% end %>
   <% end %>
 
-  <% if site.tour.user == current_user %>
-    <%= link_to "Edit", edit_note_path(note),  class: "button button-update" %>
-  <% end %>
+  <div class="d-flex justify-content-end my-0">
+    <% if site.tour.user == current_user %>
+      <%= link_to "Edit", edit_note_path(note),  class: "button button-update" %>
+    <% end %>
+  </div>
 
   </div>
 <% end %>
