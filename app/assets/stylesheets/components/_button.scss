@@ -77,7 +77,11 @@
 
 .btn-form-toggle {
   border: none;
-}
+  position: absolute;
+  margin-left: 160px;
+  margin-top: 8px;
+  background: none;
+  }
 
 .lockbutton {
   width: 40px;

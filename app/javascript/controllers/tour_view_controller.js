@@ -26,9 +26,9 @@ export default class extends Controller {
 
   siteFormBtnDisplay() {
     if (this.siteFormTarget.classList.contains("hide")) {
-      this.siteFormBtnTarget.innerHTML = `<i class="fa-regular fa-square-plus fa-lg"></i>`;
+      this.siteFormBtnTarget.innerHTML = `<i class="fa-solid fa-angle-down"></i>`;
     } else {
-      this.siteFormBtnTarget.innerHTML = `<i class="fa-regular fa-square-minus fa-lg"></i>`;
+      this.siteFormBtnTarget.innerHTML = `<i class="fa-solid fa-angle-up"></i>`;
     }
   }
 }
