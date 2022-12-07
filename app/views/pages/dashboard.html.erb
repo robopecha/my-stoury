@@ -31,7 +31,7 @@
 
 
   <div class="cards">
-    <% @tours.each do |tour| %>
+    <% @tours.without(current_user.added_tours).each do |tour| %>
       <div class="travel-card">
         <%= link_to tour_path(tour) do %>
           <div class="travel-card-header">
@@ -62,5 +62,32 @@
       </div>
     <% end %>
   </div>
+
+  <h1 class="mt-5 title">Added Tours</h1>
+
+
+  <div class="cards">
+    <% current_user.added_tours.each do |tour| %>
+      <div class="travel-card">
+        <%= link_to tour_path(tour) do %>
+          <div class="travel-card-header">
+            <% if tour.photo.key? %>
+              <%= cl_image_tag tour.photo.key %>
+            <% end %>
+          </div>
+          <div class="travel-card-text">
+            <h3><%= tour.name %></h3>
+            <p><%= tour.description %></p>
+          </div>
+        <% end %>
+        <div class="buffer">
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
+
 
 </div>
