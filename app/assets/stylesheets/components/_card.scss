@@ -95,10 +95,13 @@
 }
 
 .travel-card-text p {
+  display: block;
+}
+
+.travel-card-text h3, .travel-card-text p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: block;
 }
 
 .travel-card-links {
