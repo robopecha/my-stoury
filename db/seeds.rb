@@ -14,20 +14,20 @@ Site.destroy_all
 Note.destroy_all
 User.destroy_all
 
-tours = [{name:"Hamburg", description: "Nice tour", images: 'https://t3.ftcdn.net/jpg/02/12/56/40/360_F_212564055_ToVrfEm69urXSAj3Xd4y6gq1XmHSXJ8r.jpg'},
-        {name: "London", description: "Nice tour", images: 'https://cdn.londonandpartners.com/-/media/images/london/visit/things-to-do/sightseeing/london-attractions/coca-cola-london-eye/the-london-eye-2-640x360.jpg?mw=640&hash=F7D574072DAD523443450DF57E3B91530064E4EE'},
-        {name: "Bangladesh", description: "Nice tour", images: 'https://www.state.gov/wp-content/uploads/2019/07/Bangladesh-2109x1406.png'},
-        {name: "Amalfi Coast", description: "Nice tour", images: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Amalfi_panorama_I.jpg/2880px-Amalfi_panorama_I.jpg'},
-        {name: "British Columbia", description: "Nice tour", images: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwaqEUW4ZwBsPOcGuRb9cM70UvfZ2abMQy8A&usqp=CAU'},
-        {name: "Sverige", description: "Nice tour", images: 'https://population-europe.eu/files/styles/pe_content_xl/public/media-images/istock-1154990774_vladislav_zolotov.jpg?itok=F-XAvG1-'},
-        {name: "Vienne", description: "Nice tour", images: 'https://a.cdn-hotels.com/gdcs/production68/d1190/c23fddfd-36a8-41c0-94f8-01e3a14e49e5.jpg'},
-        {name: "Brandenburg", description: "Nice tour", images: 'https://ag-historische-stadtkerne.de/wp-content/uploads/2019/12/Brandenburg-Havel-01-LF-2012_Aviapictures.jpg'},
-        {name: "Kyoto", description: "Nice tour", images: 'https://rimage.gnst.jp/livejapan.com/public/article/detail/a/20/00/a2000676/img/basic/a2000676_main.jpg?20220629183100&q=80&rw=750&rh=536'},
-        {name: "Basque Country", description: "Nice tour", images: 'https://www.winetraveler.com/wp-content/uploads/2018/01/basque-region-of-spain-guide-winetraveler-1.jpg'},
-        {name: "Wales", description: "Nice tour", images: 'https://a.cdn-hotels.com/gdcs/production108/d1704/9aa8a8e0-58f0-11e8-a5ee-0242ac110030.jpg?impolicy=fcrop&w=800&h=533&q=medium'},
+tours = [{name:"Finland", description: "Hiking in Oulanka National park", images: 'https://worldofwanderlust.com/wp-content/uploads/2014/10/IMG_7432.jpg'},
+        {name: "England", description: "Cornwall is one of the most beautiful counties in England, with a rugged coastline that hides away peaceful white sandy beaches and untouched fishing villages", images: 'https://www.katiesaway.com/wp-content/uploads/2022/03/england-0505.jpg'},
+        {name: "Monreal, Germany", description: "The most “fairytale” village ", images: 'https://www.katiesaway.com/wp-content/uploads/2022/04/1_katiesaway-6312-scaled.jpg'},
+        {name: "Australia", description: "Beautiful East Coast Australia", images: 'https://www.katiesaway.com/wp-content/uploads/2021/02/TheUltimateGuideToRoadTripAustraliasEastCoast-3-700x1050.jpeg'},
+        {name: "Milos, Greece", description: "Ttour with Anna", images: 'https://www.katiesaway.com/wp-content/uploads/2021/04/7.jpeg'},
+        {name: "Tallin", description: "The Perfect Itinerary for Tallin‘s old town", images: 'https://www.katiesaway.com/wp-content/uploads/2022/11/Tallinn-97.jpg'},
+        {name: "Vienna", description: "I have visited Vienna a few times now but nothing compares to Vienna at Christmas. Through the month of December, the entire city is abuzz with Christmas spirit and the heart of that spirit can be found at the many Christmas markets dotted around the city. You’ll be spoiled with mulled wine, ice rinks and all the sweets you can squeeze into your pants.", images: 'https://worldofwanderlust.com/wp-content/uploads/2018/12/Vienna-3-2.jpg'},
+        {name: "Lagos, Portugal", description: " Kayak Through Caves in Lagos", images: 'https://images.squarespace-cdn.com/content/v1/6115d66cb356dc2356e173ca/1628834607371-H6DTE07JHPQTEUG56AYY/DSC04628-scaled.jpg?format=1500w'},
+        {name: "Kyoto", description: "This ain’t my first rodeo but believe me when I say that despite visiting Kyoto once before, I’m still just as in love with this city. Perhaps even more so after discovering some hidden gems on my most recent trip.!", images: 'https://worldofwanderlust.com/wp-content/uploads/2019/02/IMG_5045.jpg'},
+        {name: "Australia", description: "Drive and Discover Beautiful East Coast Australia", images: 'https://images.squarespace-cdn.com/content/v1/6115d66cb356dc2356e173ca/1633234061636-FX5C41XXYGDP29YF6YCT/20210728-DSC04243.jpg?format=1500w'},
+        {name: "Wales", description: "Visiting Tom 2022", images: 'https://worldofwanderlust.com/wp-content/uploads/2015/10/Wales.jpg'},
         {name: "Copenhagen Sommer 2021", description: "Lovely City Trip", images: 'https://images.adsttc.com/media/images/62ea/54a8/c30f/ce6c/0897/4f1e/newsletter/how-copenhagen-is-designed-for-delight_1.jpg?1659524303'},
-        {name: "Honeymoon Madeira", description: " ", images: 'https://d1hirb55zrpywb.cloudfront.net/macs-adventure-tours/routes/WPMGNO/routeimagegallery/Madeira-DergrneNordosten-rsz-11102019100131160.jpg'},
-        {name: "Südtirol", description: "fantastischer Sommerurlaub", images: 'https://phototravellers.de/wp-content/uploads/2020/08/intro-suedtirol-sehenswuerdigkeiten.jpg'}
+        {name: " Tahiti Honeymoon ", description: "Sail Away on a Catamaran", images: 'https://worldofwanderlust.com/wp-content/uploads/2018/06/tahiti-abraham.jpg'},
+        {name: " Ethiopia’s Simien Mountains", description: "Visiting the Gelada Monkeys", images: 'https://worldofwanderlust.com/wp-content/uploads/2019/11/Simien-Mountains-5.jpg'}
 ]
 
 
