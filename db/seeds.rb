@@ -9,10 +9,6 @@ require 'open-uri'
 require 'faker'
 puts "Delete all tours"
 
-Tour.destroy_all
-Site.destroy_all
-Note.destroy_all
-User.destroy_all
 
 tours = [{name:"Finland", description: "Hiking in Oulanka National park", images: 'https://worldofwanderlust.com/wp-content/uploads/2014/10/IMG_7432.jpg'},
         {name: "England", description: "Cornwall is one of the most beautiful counties in England, with a rugged coastline that hides away peaceful white sandy beaches and untouched fishing villages", images: 'https://www.katiesaway.com/wp-content/uploads/2022/03/england-0505.jpg'},
