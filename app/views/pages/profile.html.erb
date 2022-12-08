@@ -1,19 +1,20 @@
 <div>
   <br>
-  <% if current_user.photo.attached? %>
-    <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, title: current_user.username %>
-  <% else %>
-    <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, title: current_user.username %>
-  <% end %>
-  <br>
-  <%= current_user.username%>
-  <br>
-  <br>
-  <%= current_user.email%>
-  <br>
-  <br>
+    <div class="profile-card">
+            <% if current_user.photo.key? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar-profile"%>
+            <% end %>
+            <h3><%= current_user.username %></h3>
+            <p><%= current_user.email %></p>
+          <%= link_to "Edit", "/users/edit", class: "button" %>
+      </div>
+
+
   <p>You have currently <%= current_user.tours.count %> tours.</p>
   <p>You have been added to the following tours:</p>
-  <%# tours%>
-  <%= link_to "Edit", "/users/edit", class: "button" %>
+  <% current_user.added_tours.each do |tour| %>
+    <%= link_to tour_path(tour) do %>
+      <%= tour.name %>
+    <% end  %>
+  <% end %>
 </div>
