@@ -1,16 +1,19 @@
-<br>
-<% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, title: current_user.username %>
-              <% else %>
-                <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, title: current_user.username %>
-              <% end %>
-<br>
-<%= current_user.username%>
-<br>
-<%= current_user.email%>
-<br>
-<p>You have currently tours.</p>
-<%= current_user.tours.count %>
-<p>You've been added to the following tours:</p>
-<%# tours%>
-<%= link_to "Edit", "/users/edit", class: "button" %>
+<div>
+  <br>
+  <% if current_user.photo.attached? %>
+    <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, title: current_user.username %>
+  <% else %>
+    <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, title: current_user.username %>
+  <% end %>
+  <br>
+  <%= current_user.username%>
+  <br>
+  <br>
+  <%= current_user.email%>
+  <br>
+  <br>
+  <p>You have currently <%= current_user.tours.count %> tours.</p>
+  <p>You have been added to the following tours:</p>
+  <%# tours%>
+  <%= link_to "Edit", "/users/edit", class: "button" %>
+</div>
